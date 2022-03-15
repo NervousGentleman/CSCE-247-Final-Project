@@ -9,7 +9,7 @@ public class Account {
     private Boolean frequentFlyer;
     private ArrayList<Flight> bookedFlights;
     private Boolean smoker;
-    private ArrayList<Passeneger> guests;
+    private ArrayList<Passenger> guests;
 
     public String getEmail()
     {
@@ -27,6 +27,37 @@ public class Account {
     {
 
     }
-    public
+    public ArrayList<Hotel> getHotelHistory()
+    {
+
+    }
+    public void addHotelHistory(Hotel hotel)
+    {
+
+    }
+    public Boolean getFrequentFlyer()
+    {
+
+    }
+    public void setFrequentFlyer(boolean frequentFlyer)
+    {
+
+    }
+    public ArrayList<Flight> getBookedFlights()
+    {
+
+    }
+    public void addBookedFlight(Flight bookedFlight)
+    {
+
+    }
+    public ArrayList<Passenger> getGuests()
+    {
+        
+    }
+    public void addGuests(Passenger guest)
+    {
+        
+    }
     
 }
