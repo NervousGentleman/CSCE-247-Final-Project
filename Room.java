@@ -9,11 +9,11 @@ public class Room {
     {
 
     }
-    public Boolean isSmoker_Frienldy()
+    public Boolean isSmoker_Friendly()
     {
 
     }
-    public void setbedType(String betType)
+    public void setbedType(String bedType)
     {
 
     }
@@ -25,7 +25,7 @@ public class Room {
     {
 
     }
-    public Stirng getbedType()
+    public String getbedType()
     {
 
     }
