@@ -1,0 +1,67 @@
+[
+    {
+        "uuid": "9ae6b428-0604-49d5-b302-00f115f1a229",
+        "email": "jimbob@gmail.com",
+        "password": "1234",
+        "name": "Jim Bob",
+        "passportNumber": 13579,
+        "frequentFlyer": false,
+        "smoker": false,
+        "bookedFlights": {
+            "flight1": "8aa4bf8f-8122-4acc-874d-4339820a022c",
+            "flight2": "e84d13d1-0fd5-4d29-9462-bfde8459dac6"
+        },
+        "flightHistory": {
+            "flight1": "35ca62d1-249b-431c-9c49-bd4350a27f31",
+            "flight2": "6ac17edc-b751-444c-b856-d12261bc51d9"
+        },
+        "hotelHistory": {
+            "hotel1": "Worst Eastern",
+            "hotel2": "Nights Inn"
+        },
+        "guests": [
+            {
+                "name": "Alice Bob",
+                "passportNumber": 2468
+            },
+            {
+                "name": "Sally Bob",
+                "passportNumber": 123456789
+            }
+        ]
+    },
+    {
+        "uuid": "6ee003e0-472d-47ce-8244-455da1026dda",
+        "email": "nancyblack@hotmail.com",
+        "password": "n@ncysm!th",
+        "name": "Nancy Smith",
+        "passportNumber": 125689,
+        "frequentFlyer": false,
+        "smoker": true,
+        "bookedFlights": {
+            "flight1": "77c324e0-9864-4444-b885-54a35db5d35e",
+            "flight2": "9e4c6cbf-b2ed-47cb-a171-4c86a519d825",
+            "flight3": "73ea40ec-ad47-420a-aac2-550f10762e8c"
+        },
+        "flightHistory": {
+            "flight1": "45a98816-8452-4787-89d3-43143dcb59f0"
+        },
+        "hotelHistory": {
+            "hotel1": "Work Inn"
+        },
+        "guests": [
+            {
+                "name": "Dan Black",
+                "passportNumber": 12345
+            },
+            {
+                "name": "Billy Black",
+                "passportNumber": 6789
+            },
+            {
+                "name": "Danny Black",
+                "passportNumber": 3478
+            }
+        ]
+    }
+]
