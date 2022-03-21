@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Worst Eastern",
+        "price": 30.0,
+        "rating": 3,
+        "petFriendly": true,
+        "breakfast": true,
+        "hotelAddress": "123 Something Street",
+        "rooms": [
+            {
+               "roomType": "Regular",
+               "smokerFriendly": true,
+               "bedCount": 1,
+               "bedType": "Full" 
+            },
+           
+            {
+               "roomType": "Suite",
+               "smokerFriendly": true,
+               "bedCount": 2,
+               "bedType": "Queen" 
+            }
+        ]
+    },
+    {
+        "name": "Nights Inn",
+        "price": 80.0,
+        "rating": 4,
+        "petFriendly": true,
+        "breakfast": false,
+        "hotelAddress": "145 Something Street",
+        "rooms": [
+            {
+               "roomType": "Regular",
+               "smokerFriendly": true,
+               "bedCount": 1,
+               "bedType": "Full" 
+            },
+           
+            {
+               "roomType": "Suite",
+               "smokerFriendly": false,
+               "bedCount": 1,
+               "bedType": "King" 
+            }
+        ]
+    }
+]
