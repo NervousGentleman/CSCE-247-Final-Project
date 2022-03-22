@@ -60,6 +60,10 @@ public class Flight {
     {
         this.seatCount = seatCount;
     }
+    public int getFlightDuration()
+    {
+        return flightDuration;
+    }
     public void setFlightDuration(int flightDuration)
     {
         this.flightDuration = flightDuration;
