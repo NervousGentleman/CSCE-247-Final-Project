@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class FlightParser implements Parser {
     private static FlightParser flightParser;
+    private ArrayList<Flight> flights;
 
     private FlightParser() {
 
@@ -15,7 +16,7 @@ public class FlightParser implements Parser {
     }
 
     public ArrayList<Flight> load() {
-
+        return flights;
     }
 
     public void save() {
@@ -31,6 +32,6 @@ public class FlightParser implements Parser {
     }
 
     public void delete(Flight flight) {
-        
+
     }
 }
