@@ -15,7 +15,7 @@ public class Airline {
     }
     public void setCarryOnLimit(int carryOnLimit)
     {
-        carryOnLimit == input.PLACEHOLDER;
+        this.carryOnLimit = carryOnLimit;
     }
     public int getCheckedBagLimit()
     {
@@ -23,7 +23,7 @@ public class Airline {
     }
     public void setCheckedBagLimit(int checkedBagLimit)
     {
-        checkedBagLimit == input.PLACEHOLDER;
+        this.checkedBagLimit = checkedBagLimit;
     }
     public String getAirlineName()
     {
@@ -31,7 +31,7 @@ public class Airline {
     }
     public void setAirlineName(String airlineName)
     {
-        airlineName == input.PLACEHOLDER;
+        this.airlineName = airlineName;
     }
     public int getRating()
     {
@@ -39,6 +39,6 @@ public class Airline {
     }
     public void setRaiting(int rating)
     {
-        
+        this.rating = rating;
     }
 }
