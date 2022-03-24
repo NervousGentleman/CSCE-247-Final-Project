@@ -9,7 +9,7 @@
     "flightNum": "A1223",
     "row": 3,
     "seatsPerRow": 3,
-    "seatOccumpied": [
+    "seatOccupied": [
         {
             "rowLetter": "A",
             "1": false,
@@ -41,7 +41,7 @@
     "flightNum": "D4322",
     "row": 10,
     "seatsPerRow": 6,
-    "seatOccumpied": [
+    "seatOccupied": [
         {
             "rowLetter": "A",
             "1": true,
