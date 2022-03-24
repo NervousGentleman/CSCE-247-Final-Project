@@ -44,9 +44,17 @@ public class Hotel {
     {
         return pet_friendly;
     }
+    public void setPet_Friendly(Boolean pet_friendly)
+    {
+        this.pet_friendly = pet_friendly;
+    }
     public Boolean hasBreakfast()
     {
         return breakfast;
+    }
+    public void setBreakfast(Boolean breakfast)
+    {
+        this.breakfast = breakfast;
     }
     public String getHotelAddress()
     {

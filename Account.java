@@ -12,6 +12,24 @@ public class Account {
     private ArrayList<Passenger> guests;
     private Flight flight;
 
+
+    public String getUserPassword()
+    {
+        return userPassword;
+    }
+    public void setUserPassword(String userPassword)
+    {
+        this.userPassword = userPassword;
+    }
+    public Boolean isSmoker()
+    {
+        return smoker;
+    }
+    public void setSomoker(Boolean smoker)
+    {
+        this.smoker = smoker;
+    }
+
     public String getEmail()
     {
         return email;
@@ -24,7 +42,15 @@ public class Account {
     {
         return flightHistory;
     }
-    public void addFlightHistory(Flight flight)
+    public void addFlightHistory(ArrayList<Flight> flightHistory)
+    {
+        this.flightHistory = flightHistory;
+    }
+    public Flight getFlight()
+    {
+        return flight;
+    }
+    public void setFlight(Flight flight)
     {
         this.flight = flight;
     }

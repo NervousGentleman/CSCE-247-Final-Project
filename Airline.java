@@ -3,7 +3,6 @@ public class Airline {
 
     private int carryOnLimit;
     private int checkedBagLimit;
-    private String name;
     private int rating;
     private String airlineName;
 
