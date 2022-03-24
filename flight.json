@@ -1,7 +1,7 @@
 [{
     "id": "-",
     "airline": "UnAmerican Airlines",
-    "time": "2022-06-09T13:30:00.000Z",
+    "time": "-",
     "gate": "A13",
     "airport": "Atlanta",
     "destination": "Chicago",
@@ -29,4 +29,46 @@
             "3": false
         }
     ]
+},
+{
+    "id": "-",
+    "airline": "Epselon Airlines",
+    "time": "-",
+    "gate": "B04",
+    "airport": "Los Angeles",
+    "destination": "New York",
+    "carryOn": 2,
+    "flightNum": "D4322",
+    "row": 10,
+    "seatsPerRow": 6,
+    "seatOccumpied": [
+        {
+            "rowLetter": "A",
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": false
+        },
+        {
+            "rowLetter": "B",
+            "1": false,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": false
+        },
+        {
+            "rowLetter": "C",
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": true
+        }
+    ]
 }]
+
