@@ -1,7 +1,7 @@
 [{
     "id": "-",
     "airline": "UnAmerican Airlines",
-    "time": "-",
+    "time": 1653399000,
     "gate": "A13",
     "airport": "Atlanta",
     "destination": "Chicago",
@@ -33,7 +33,7 @@
 {
     "id": "-",
     "airline": "Epselon Airlines",
-    "time": "-",
+    "time": 1653386400,
     "gate": "B04",
     "airport": "Los Angeles",
     "destination": "New York",
