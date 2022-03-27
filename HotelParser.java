@@ -17,7 +17,7 @@ public class HotelParser implements Parser<Hotel> {
 
     public static HotelParser getInstance() {
         if (hotelParser == null) {
-            return new HotelParser();
+            hotelParser = new HotelParser();
         }
         return hotelParser;
     } // ending bracket of method getInstance
