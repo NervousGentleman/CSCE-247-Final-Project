@@ -1,4 +1,3 @@
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,7 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class HotelParser extends HotelDataConstants {
+public class HotelParser extends HotelDataConstants implements Parser<Hotel> {
     
     private static HotelParser hotelParser;
     private ArrayList<Hotel> hotels;
