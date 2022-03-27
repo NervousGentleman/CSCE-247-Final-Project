@@ -1,5 +1,18 @@
 public enum HotelName {
 
-    WORST_EASTERN, NIGHTS_INN, LOUSY_7, UNCOMFORTABLE_INN, WORK_INN
-    
+    WORST_EASTERN("Worst Eastern"),
+    NIGHTS_INN("Nights Inn"),
+    LOUSY_7("Lousy 7"),
+    UNCOMFORTABLE_INN("Uncomfortable Inn"),
+    WORK_INN("Work Inn");
+
+    private final String name;
+
+    private HotelName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
