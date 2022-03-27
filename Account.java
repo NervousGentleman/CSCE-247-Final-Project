@@ -6,18 +6,19 @@ public class Account {
     private UUID uuid;
     private String email;
     private String password;
+    private String name;
     private Date dateOfBirth;
     private int passportNumber;
     private ArrayList<Flight> flightHistory;
     private ArrayList<Hotel> hotelHistory;
     private ArrayList<Flight> bookedFlights;
     private ArrayList<Hotel> bookedHotels;
-    private Boolean frequentFlyer;
-    private Boolean smoker;
+    private boolean frequentFlyer;
+    private boolean smoker;
     private ArrayList<Passenger> guests;
     private Passenger passengerSelf;
 
-    public Account(UUID uuid, String email, String password, Date dateOfBirth, int passportNumber,
+    public Account(UUID uuid, String email, String password, String name, Date dateOfBirth, int passportNumber,
                     ArrayList<Flight> flightHistory, ArrayList<Hotel> hotelHistory, ArrayList<Flight> bookedFlights,
                     ArrayList<Hotel> bookedHotels, boolean frequentFlyer, boolean smoker, ArrayList<Passenger> guests,
                     Passenger passengerSelf) {
@@ -61,6 +62,14 @@ public class Account {
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getDateOfBirth() {
