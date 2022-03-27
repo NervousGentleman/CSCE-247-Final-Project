@@ -1,80 +1,106 @@
 public class Hotel {
-
-    private String name;
-    private Double price;
-    private Room room_type;
+    private HotelName name;
     private int rating;
-    private Boolean pet_friendly;
-    private Boolean breakfast;
-    private String hotel_address;
+    private boolean petFriendly;
+    private boolean hasBreakfast;
+    private boolean hasPool;
+    private String location;
+    private int numFloors;
+    private int numRoomsPerFloor;
+    private Room[][] rooms;
 
-    public Hotel(String name, Double price, int rating, boolean petFriendly, boolean breakfast, String hotelAddress){
-
-        this.setName(name);
-        this.setPrice(price);
-        this.setRating(rating);
-        this.setPet_Friendly(petFriendly);
-        this.setBreakfast(breakfast);
-        this.setHotelAddress(hotelAddress);
-
+    public Hotel(HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
+                String location, int numFloors, int numRoomsPerFloor, Room[][] rooms) {
+                    this.name = name;
+                    this.rating = rating;
+                    this.petFriendly = petFriendly;
+                    this.hasBreakfast = hasBreakfast;
+                    this.hasPool = hasPool;
+                    this.location = location;
+                    this.numFloors = numFloors;
+                    this.numRoomsPerFloor = numRoomsPerFloor;
+                    this.rooms = rooms;
     }
 
-    public String getName()
+    public HotelName getName()
     {
         return name;
     }
-    public void setName(String name)
+
+    public void setName(HotelName name)
     {
         this.name = name;
     }
-    public Double getPrice()
-    {
-        return price;
-    }
-    public void setPrice(Double price)
-    {
-        this.price = price;
-    }
-    public Room getRoom_Type()
-    {
-        return room_type;
-    }
-    public void setRoom_TYpe(Room room_type)
-    {
-        this.room_type = room_type;
-    }
+
     public int getRating()
     {
         return rating;
     }
+
     public void setRating(int rating)
     {
         this.rating = rating;
     }
-    public Boolean isPet_Friendly()
+
+    public boolean isPetFriendly()
     {
-        return pet_friendly;
-    }
-    public void setPet_Friendly(Boolean pet_friendly)
-    {
-        this.pet_friendly = pet_friendly;
-    }
-    public Boolean hasBreakfast()
-    {
-        return breakfast;
-    }
-    public void setBreakfast(Boolean breakfast)
-    {
-        this.breakfast = breakfast;
-    }
-    public String getHotelAddress()
-    {
-        return hotel_address;
-    }
-    public void setHotelAddress(String hotel_address)
-    {
-        this.hotel_address = hotel_address;
+        return petFriendly;
     }
 
-    
+    public void setPetFriendly(boolean petFriendly)
+    {
+        this.petFriendly = petFriendly;
+    }
+
+    public boolean getHasBreakfast()
+    {
+        return hasBreakfast;
+    }
+
+    public void setHasBreakfast(boolean hasBreakfast)
+    {
+        this.hasBreakfast = hasBreakfast;
+    }
+
+    public boolean getHasPool() {
+        return hasPool;
+    }
+
+    public void setHasPool(boolean hasPool) {
+        this.hasPool = hasPool;
+    }
+
+    public String getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(String location)
+    {
+        this.location = location;
+    }
+
+    public int getNumFloors() {
+        return numFloors;
+    }
+
+    public void setNumFloors(int numFloors) {
+        this.numFloors = numFloors;
+    }
+
+    public int getNumRoomsPerFloor() {
+        return numRoomsPerFloor;
+    }
+
+    public void setNumRoomsPerFloor(int numRoomsPerFloor) {
+        this.numRoomsPerFloor = numRoomsPerFloor;
+    }
+
+    public Room[][] getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Room[][] rooms) {
+        this.rooms = rooms;
+    }
 }

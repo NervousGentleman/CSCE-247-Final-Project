@@ -1,37 +1,95 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Room {
+    private ArrayList<Passenger> occupants;
+    private ArrayList<Date[]> datesOccupied;
+    private double price;
+    private int roomNumber;
+    private RoomType roomType;
+    private boolean smokerFriendly;
+    private int numberBeds;
+    private BedType bedType;
 
-    private String roomtype;
-    private Boolean Smoker_Friendly;
-    private int bedCount;
-    private String bedType;
+    public Room(ArrayList<Passenger> occupants, ArrayList<Date[]> datesOccupied, double price,
+                int roomNumber, RoomType roomType, boolean smokerFriendly, int numberBeds, BedType bedType) {
+                    this.occupants = occupants;
+                    this.datesOccupied = datesOccupied;
+                    this.price = price;
+                    this.roomNumber = roomNumber;
+                    this.roomType = roomType;
+                    this.smokerFriendly = smokerFriendly;
+                    this.numberBeds = numberBeds;
+                    this.bedType = bedType;
+                }
 
-    public void setRoomType(String roomtype)
-    {
-        this.roomtype = roomtype;
+    public ArrayList<Passenger> getOccupants() {
+        return occupants;
     }
-    public Boolean isSmoker_Friendly()
-    {
-        return Smoker_Friendly;
+
+    public void setOccupants(ArrayList<Passenger> occupants) {
+        this.occupants = occupants;
     }
-    public void setSmoker(Boolean Smoker_Friendly)
-    {
-        this.Smoker_Friendly = Smoker_Friendly;
+
+    public ArrayList<Date[]> getDatesOccupied() {
+        return datesOccupied;
     }
-    public void setbedType(String bedType)
-    {
-        this.bedType = bedType;
+
+    public void setDatesOccupied(ArrayList<Date[]> datesOccupied) {
+        this.datesOccupied = datesOccupied;
     }
-    public String getRoomType()
-    {
-        return roomtype;
+
+    public double getPrice() {
+        return price;
     }
-    public int getbedCount()
-    {
-        return bedCount;
+
+    public void setPrice(double price) {
+        this.price = price;
     }
-    public String getbedType()
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public RoomType getRoomType()
+    {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType)
+    {
+        this.roomType = roomType;
+    }
+
+    public boolean getSmokerFriendly()
+    {
+        return smokerFriendly;
+    }
+
+    public void setSmokerFriendly(boolean smokerFriendly)
+    {
+        this.smokerFriendly = smokerFriendly;
+    }
+
+    public int getNumberBeds() {
+        return numberBeds;
+    }
+
+    public void setNumberBeds(int numberBeds) {
+        this.numberBeds = numberBeds;
+    }
+    
+    public BedType getBedType()
     {
         return bedType;
     }
-    
+
+    public void setBedType(BedType bedType)
+    {
+        this.bedType = bedType;
+    }
 }
