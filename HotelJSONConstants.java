@@ -1,5 +1,5 @@
 public enum HotelJSONConstants {
-   HOTEL_FILE_NAME("Hotel.json"),
+   HOTEL_FILE_NAME("JSON/Hotel.json"),
    HOTEL_NAME("name"),
    HOTEL_PRICE("price"),
    HOTEL_RATING("rating"),
