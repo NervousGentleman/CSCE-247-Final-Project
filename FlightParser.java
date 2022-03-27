@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class FlightParser implements Parser {
+public class FlightParser implements Parser<Flight> {
     private static FlightParser flightParser;
     private ArrayList<Flight> flights;
 
