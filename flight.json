@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "id": "-",
@@ -196,3 +197,79 @@
 
     }
 ]
+=======
+[{
+    "id": "-",
+    "airline": "UnAmerican Airlines",
+    "time": 1653399000,
+    "gate": "A13",
+    "airport": "Atlanta",
+    "destination": "Chicago",
+    "carryOn": 2,
+    "flightNum": "A1223",
+    "row": 3,
+    "seatsPerRow": 3,
+    "seatOccupied": [
+        {
+            "rowLetter": "A",
+            "1": false,
+            "2": true,
+            "3": true
+        },
+        {
+            "rowLetter": "B",
+            "1": false,
+            "2": true,
+            "3": false
+        },
+        {
+            "rowLetter": "C",
+            "1": false,
+            "2": false,
+            "3": false
+        }
+    ]
+},
+{
+    "id": "-",
+    "airline": "Epselon Airlines",
+    "time": 1653386400,
+    "gate": "B04",
+    "airport": "Los Angeles",
+    "destination": "New York",
+    "carryOn": 2,
+    "flightNum": "D4322",
+    "row": 10,
+    "seatsPerRow": 6,
+    "seatOccupied": [
+        {
+            "rowLetter": "A",
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": false
+        },
+        {
+            "rowLetter": "B",
+            "1": false,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": false
+        },
+        {
+            "rowLetter": "C",
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true,
+            "5": true,
+            "6": true
+        }
+    ]
+}]
+
+>>>>>>> a52ef09b5d3722712e967946ef1037361069c080

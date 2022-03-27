@@ -8,6 +8,17 @@ public class Hotel {
     private Boolean breakfast;
     private String hotel_address;
 
+    public Hotel(String name, Double price, int rating, boolean petFriendly, boolean breakfast, String hotelAddress){
+
+        this.setName(name);
+        this.setPrice(price);
+        this.setRating(rating);
+        this.setPet_Friendly(petFriendly);
+        this.setBreakfast(breakfast);
+        this.setHotelAddress(hotelAddress);
+
+    }
+
     public String getName()
     {
         return name;
