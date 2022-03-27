@@ -12,7 +12,7 @@ public class HotelParser extends HotelDataConstants {
     private static HotelParser hotelParser;
     private ArrayList<Hotel> hotels;
 
-    private HotelParser() {
+    public HotelParser() {
         this.hotels = new ArrayList<Hotel>();
     } // ending bracket of constructor
 
@@ -29,6 +29,7 @@ public class HotelParser extends HotelDataConstants {
 		
 		try {
 			FileReader reader = new FileReader(HOTEL_FILE_NAME);
+            JSONParser parser = new JSONParser();
 			JSONArray hotelsJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			for(int i=0; i < hotelsJSON.size(); i++) {
@@ -73,10 +74,6 @@ public class HotelParser extends HotelDataConstants {
     public void add(Hotel hotel) {
         this.hotels.add(hotel);
     } // ending bracket of method add
-
-    public void edit(Hotel hotel) {
-
-    } // eniding bracket of method edit
 
     public void delete(Hotel hotel) {
         this.hotels.remove(hotel);
