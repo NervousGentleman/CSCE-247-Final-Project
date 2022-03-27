@@ -1,4 +1,7 @@
+import java.util.UUID;
+
 public class Hotel {
+    private UUID uuid;
     private HotelName name;
     private int rating;
     private boolean petFriendly;
@@ -9,8 +12,9 @@ public class Hotel {
     private int numRoomsPerFloor;
     private Room[][] rooms;
 
-    public Hotel(HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
+    public Hotel(UUID uuid, HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
                 String location, int numFloors, int numRoomsPerFloor, Room[][] rooms) {
+                    this.uuid = uuid;
                     this.name = name;
                     this.rating = rating;
                     this.petFriendly = petFriendly;
@@ -22,6 +26,14 @@ public class Hotel {
                     this.rooms = rooms;
     }
 
+    public UUID getUUID() {
+        return uuid;
+    }
+
+    public void setUUID(UUID uuid) {
+        this.uuid = uuid;
+    }
+    
     public HotelName getName()
     {
         return name;
