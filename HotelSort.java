@@ -8,10 +8,12 @@ public class HotelSort implements Sort<Hotel> {
     }
 
     public ArrayList<Hotel> sortName() {
-        return hotels;
+        ArrayList<Hotel> ret = hotels;
+        return ret;
     }
 
     public ArrayList<Hotel> sortPrice() {
-        return hotels;
+        ArrayList<Hotel> ret = hotels;
+        return ret;
     }
 }

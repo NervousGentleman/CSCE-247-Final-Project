@@ -8,10 +8,22 @@ public class FlightSort implements Sort<Flight> {
     }
 
     public ArrayList<Flight> sortName() {
-        return flights;
+        ArrayList<Flight> ret = flights;
+        return ret;
     }
 
     public ArrayList<Flight> sortPrice() {
-        return flights;
+        ArrayList<Flight> ret = flights;
+        return ret;
+    }
+
+    public ArrayList<Flight> sortArrivalTime() {
+        ArrayList<Flight> ret = flights;
+        return ret;
+    }
+
+    public ArrayList<Flight> sortDepartureTime() {
+        ArrayList<Flight> ret = flights;
+        return ret;
     }
 }
