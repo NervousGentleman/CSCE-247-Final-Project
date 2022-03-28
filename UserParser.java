@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -122,6 +123,10 @@ public class UserParser implements Parser<Account> {
                     int tPassportNumber = ((Long) temp.get(c.PASSPORT_NUMBER.getName())).intValue();
                     guests.add(new Passenger(tName, tDateOfBirth, tPassportNumber));
                 }
+
+                users.add(new Account(uuid, email, password, name, dateOfBirth, passportNumber, 
+                        flightHistory, hotelHistory, bookedFlights, bookedHotels, frequentFlyer, 
+                        smoker, guests, new Passenger(name, dateOfBirth, passportNumber)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -131,7 +136,70 @@ public class UserParser implements Parser<Account> {
     }
 
     public void save() {
-        
+        JSONArray usersArray = new JSONArray();
+        for (int i = 0; i < users.size(); i++) {
+            Account a = users.get(i);
+            JSONObject user = new JSONObject();
+            user.put(c.UUID.getName(), a.getUUID().toString());
+            user.put(c.EMAIL.getName(), a.getEmail());
+            user.put(c.PASSWORD.getName(), a.getPassword());
+            user.put(c.NAME.getName(), a.getName());
+            user.put(c.DATE_OF_BIRTH.getName(), ((Long) a.getDateOfBirth().getTime() / 1000));
+            user.put(c.PASSPORT_NUMBER.getName(), ((Integer) a.getPassportNumber()).longValue());
+            ArrayList<Flight> flightHistory = a.getFlightHistory();
+            JSONArray flightHistoryArray = new JSONArray();
+            for (int j = 0; j < flightHistory.size(); j++) {
+                JSONObject temp = new JSONObject();
+                temp.put(String.valueOf(j+1), flightHistory.get(j).getFlightID().toString());
+                flightHistoryArray.add(temp);
+            }
+            user.put(c.FLIGHT_HISTORY.getName(), flightHistoryArray);
+            ArrayList<Hotel> hotelHistory = a.getHotelHistory();
+            JSONArray hotelHistoryArray = new JSONArray();
+            for (int j = 0; j < hotelHistory.size(); j++) {
+                JSONObject temp = new JSONObject();
+                temp.put(String.valueOf(j+1), hotelHistory.get(j).getUUID().toString());
+                hotelHistoryArray.add(temp);
+            }
+            user.put(c.HOTEL_HISTORY.getName(), hotelHistoryArray);
+            ArrayList<Flight> bookedFlights = a.getBookedFlights();
+            JSONArray bookedFlightsArray = new JSONArray();
+            for (int j = 0; j < bookedFlights.size(); j++) {
+                JSONObject temp = new JSONObject();
+                temp.put(String.valueOf(j+1), bookedFlights.get(j).getFlightID().toString());
+                bookedFlightsArray.add(temp);
+            }
+            user.put(c.BOOKED_FLIGHTS.getName(), bookedFlightsArray);
+            ArrayList<Hotel> bookedHotels = a.getBookedHotels();
+            JSONArray bookedHotelsArray = new JSONArray();
+            for (int j = 0; j < bookedHotels.size(); j++) {
+                JSONObject temp = new JSONObject();
+                temp.put(String.valueOf(j+1), bookedHotels.get(j).getUUID().toString());
+                bookedHotelsArray.add(temp);
+            }
+            user.put(c.BOOKED_HOTELS.getName(), bookedHotelsArray);
+            user.put(c.FREQUENT_FLYER.getName(), a.getFrequentFlyer());
+            user.put(c.SMOKER.getName(), a.isSmoker());
+            ArrayList<Passenger> guests = a.getGuests();
+            JSONArray guestsArray = new JSONArray();
+            for (int j = 0; j < guests.size(); j++) {
+                JSONObject temp = new JSONObject();
+                temp.put(c.NAME.getName(), guests.get(j).getName());
+                temp.put(c.DATE_OF_BIRTH.getName(), ((Long) guests.get(j).getDateOfBirth().getTime() / 1000));
+                temp.put(c.PASSPORT_NUMBER.getName(), ((Integer) guests.get(j).getPassportNumber()).longValue());
+                guestsArray.add(temp);
+            }
+            user.put(c.GUESTS.getName(), guestsArray);
+            usersArray.add(user);
+        }
+
+        try {
+            FileWriter file = new FileWriter(c.FILE_NAME.getName());
+            file.write(usersArray.toJSONString());
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void add(Account user) {
