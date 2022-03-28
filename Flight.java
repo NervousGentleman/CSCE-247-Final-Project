@@ -44,6 +44,11 @@ public class Flight {
         this.flightID = flightID;
     }
 
+    public Flight(){
+
+    } // ending bracket of default constructor
+
+
     public Airline getAirline()
     {
         return airline;

@@ -66,17 +66,17 @@ public class UI {
 
     public void viewAccountPrompt(){
         System.out.println("******************* Account *******************");
-        System.out.println("1. Access account\n2. Find Flight\n3. Find Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. End Program\n");
+        System.out.println("");
     }
 
     public boolean createAccountPrompt(){
         boolean createSuccessful = false;
         
-        String tempUsername = "";
+        String tempEmail = "";
         String tempPassword = "";
         System.out.println("******************* Create Account *******************");
-        System.out.print("Please enter your desired username: ");
-        tempUsername = kb.nextLine();
+        System.out.print("Please enter your email address: ");
+        tempEmail = kb.nextLine();
         System.out.print("Please enter your desired password: ");
         tempPassword = kb.nextLine();
 
@@ -87,6 +87,5 @@ public class UI {
         return createSuccessful;
     }   
     
-
 
 } // ending bracket of class UI

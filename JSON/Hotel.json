@@ -1,14 +1,19 @@
 [
     {
+        "uuid": "a6d7e4e2-d641-4613-ac3a-e2386fbc887d",
         "name": "Worst Eastern",
-        "price": 30.0,
         "rating": 3,
         "petFriendly": true,
-        "breakfast": true,
+        "hasBreakfast": true,
+        "hasPool": true,
+        "location": "Seattle, Washington",
+        "numFloors": 7,
+        "numRoomsPerFloor": 10,
         "hotelAddress": "123 Something Street",
         "rooms": [
             {
                "roomType": "Regular",
+               "price": 30.0,
                "smokerFriendly": true,
                "bedCount": 1,
                "bedType": "Full" 
@@ -16,6 +21,7 @@
            
             {
                "roomType": "Suite",
+               "price": 90.0,
                "smokerFriendly": true,
                "bedCount": 2,
                "bedType": "Queen" 
@@ -23,15 +29,20 @@
         ]
     },
     {
+        "uuid": "59adc9a5-b4dd-4092-98e2-05da2143cf25",
         "name": "Nights Inn",
-        "price": 80.0,
         "rating": 4,
         "petFriendly": true,
-        "breakfast": false,
+        "hasBreakfast": false,
+        "hasPool": false,
+        "location": "Columbia, South Carolina",
+        "numFloors": 1,
+        "numRoomsPerFloor": 5,
         "hotelAddress": "145 Something Street",
         "rooms": [
             {
                "roomType": "Regular",
+               "price": 80.0,
                "smokerFriendly": true,
                "bedCount": 1,
                "bedType": "Full" 
@@ -39,6 +50,7 @@
            
             {
                "roomType": "Suite",
+               "price": 150.0,
                "smokerFriendly": false,
                "bedCount": 1,
                "bedType": "King" 

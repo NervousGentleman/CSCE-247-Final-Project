@@ -110,10 +110,9 @@ public class Account {
     {
         return bookedFlights;
     }
-
-    public void setBookedFlights(ArrayList<Flight> bookedFlights)
+    public void addBookedFlight(Flight bookedFlight)
     {
-        this.bookedFlights = bookedFlights;
+        this.bookedFlights.add(bookedFlight);
     }
 
     public ArrayList<Hotel> getBookedHotels() {
