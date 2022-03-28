@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-<<<<<<< HEAD
 
 public class Sort {
 
@@ -38,10 +37,8 @@ public class Sort {
 
     
 }
-=======
 
 public interface Sort<T> {
     public ArrayList<T> sortName();
     public ArrayList<T> sortPrice();
 }
->>>>>>> 0b342a0caf0e2e97473e957e0b60c6f8779a9408
