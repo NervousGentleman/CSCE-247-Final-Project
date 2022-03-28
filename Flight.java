@@ -111,6 +111,9 @@ public class Flight {
 
     public double getFlightDuration()
     {
+        if (isConnecting && previousFlight != null) {
+            return flightDuration + previousFlight.getFlightDuration();
+        }
         return flightDuration;
     }
 
