@@ -50,11 +50,19 @@ public class Facade {
     public void displayFlights(ArrayList<Flight> flightList){
         // display flightList by looping through and calling toString method of each flight
         // print i+1 + ". " before flight info
+        for(int i = 0; i < flightList.size(); i++);
+        {
+            System.out.println(flightList.toString());
+        }
     }
     
     public void displayHotels(ArrayList<Hotel> hotelList){
         // display hotelList by looping through and calling toString method of each hotel
         // print i+1 + ". " before hotel info
+        for(int i = 0; i < hotelList.size(); i++)
+        {
+            System.out.println(hotelList.toString());
+        }
     }
 
     public void displaySeats(Flight flight){
