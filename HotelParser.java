@@ -1,4 +1,3 @@
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,18 +6,18 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class HotelParser extends HotelDataConstants {
+public class HotelParser implements Parser<Hotel> {
     
     private static HotelParser hotelParser;
     private ArrayList<Hotel> hotels;
 
-    private HotelParser() {
+    public HotelParser() {
         this.hotels = new ArrayList<Hotel>();
     } // ending bracket of constructor
 
     public static HotelParser getInstance() {
         if (hotelParser == null) {
-            return new HotelParser();
+            hotelParser = new HotelParser();
         }
         return hotelParser;
     } // ending bracket of method getInstance
@@ -28,17 +27,17 @@ public class HotelParser extends HotelDataConstants {
         ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
 		try {
-			FileReader reader = new FileReader(HOTEL_FILE_NAME);
+			FileReader reader = new FileReader(HotelJSONConstants.HOTEL_FILE_NAME.getName());
 			JSONArray hotelsJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			for(int i=0; i < hotelsJSON.size(); i++) {
 				JSONObject hotelJSON = (JSONObject)hotelsJSON.get(i);
-				String name = (String)hotelJSON.get(HOTEL_NAME);
-				Double price = (Double)hotelJSON.get(HOTEL_PRICE);
-				int rating = (int)hotelJSON.get(HOTEL_RATING);
-                boolean petFriendly = (boolean)hotelJSON.get(HOTEL_PET_FRIENDLY);
-                boolean breakfast = (boolean)hotelJSON.get(HOTEL_BREAKFAST);
-                String address = (String)hotelJSON.get(HOTEL_ADDRESS);
+				String name = (String)hotelJSON.get(HotelJSONConstants.HOTEL_NAME.getName());
+				Double price = (Double)hotelJSON.get(HotelJSONConstants.HOTEL_PRICE.getName());
+				int rating = (int)hotelJSON.get(HotelJSONConstants.HOTEL_RATING.getName());
+                boolean petFriendly = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_PET_FRIENDLY.getName());
+                boolean breakfast = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_BREAKFAST.getName());
+                String address = (String)hotelJSON.get(HotelJSONConstants.HOTEL_ADDRESS.getName());
 				
 				hotels.add(new Hotel(name, price, rating, petFriendly, breakfast, address)); // need to add rooms
 			}
@@ -60,7 +59,7 @@ public class HotelParser extends HotelDataConstants {
             jsonHotels.add(getHotelJson(hotels.get(i)));
         }
 
-        try(FileWriter file = new FileWriter(HOTEL_FILE_NAME)){
+        try(FileWriter file = new FileWriter(HotelJSONConstants.HOTEL_FILE_NAME.getName())){
             file.write(jsonHotels.toJSONString());
             file.flush();
 
@@ -74,10 +73,6 @@ public class HotelParser extends HotelDataConstants {
         this.hotels.add(hotel);
     } // ending bracket of method add
 
-    public void edit(Hotel hotel) {
-
-    } // eniding bracket of method edit
-
     public void delete(Hotel hotel) {
         this.hotels.remove(hotel);
     } // ending bracket of method delete
@@ -85,12 +80,12 @@ public class HotelParser extends HotelDataConstants {
     public static JSONObject getHotelJson(Hotel hotel){
 
         JSONObject hotelDetails = new JSONObject();
-        hotelDetails.put(HOTEL_NAME, hotel.getName());
-        hotelDetails.put(HOTEL_PRICE, hotel.getPrice());
-        hotelDetails.put(HOTEL_RATING, hotel.getRating());
-        hotelDetails.put(HOTEL_PET_FRIENDLY, hotel.isPet_Friendly());
-        hotelDetails.put(HOTEL_BREAKFAST, hotel.hasBreakfast());
-        hotelDetails.put(HOTEL_ADDRESS, hotel.getHotelAddress());
+        hotelDetails.put(HotelJSONConstants.HOTEL_NAME.getName(), hotel.getName());
+        hotelDetails.put(HotelJSONConstants.HOTEL_PRICE.getName(), hotel.getPrice());
+        hotelDetails.put(HotelJSONConstants.HOTEL_RATING.getName(), hotel.getRating());
+        hotelDetails.put(HotelJSONConstants.HOTEL_PET_FRIENDLY.getName(), hotel.isPet_Friendly());
+        hotelDetails.put(HotelJSONConstants.HOTEL_BREAKFAST.getName(), hotel.hasBreakfast());
+        hotelDetails.put(HotelJSONConstants.HOTEL_ADDRESS.getName(), hotel.getHotelAddress());
         
         return hotelDetails;
 

@@ -1,16 +1,48 @@
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.UUID;
+
 public class Flight {
-
-
+    private UUID flightID;
     private Airline airline;
-    private Double cost;
-    private ArrayList<String> airports;
-    private String date;
-    private int Flight_ID;
-    private int seatCount;
-    private int flightDuration;
-    private boolean flightFull;
-    private ArrayList<Seat> seatList;
+    private String departureLocation;
+    private String destinationLocation;
+    private boolean isConnecting;
+    private Flight previousFlight;
+    private Flight nextFlight;
+    private Date departureTime;
+    private Date arrivalTime;
+    private double flightDuration;
+    private int numRows;
+    private int numSeatsPerRow;
+    private Seat[][] seats;
+
+    public Flight(UUID flightID, Airline airline, String departureLocation, String destinationLocation,
+                    boolean isConnecting, Flight previousFlight, Flight nextFlight, Date departureTime,
+                    Date arrivalTime, double flightDuration, int numRows, int numSeatsPerRow, Seat[][] seats) {
+                        this.flightID = flightID;
+                        this.departureLocation = departureLocation;
+                        this.destinationLocation = destinationLocation;
+                        this.isConnecting = isConnecting;
+                        this.previousFlight = previousFlight;
+                        this.nextFlight = nextFlight;
+                        this.departureTime = departureTime;
+                        this.arrivalTime = arrivalTime;
+                        this.flightDuration = flightDuration;
+                        this.numRows = numRows;
+                        this.numSeatsPerRow = numSeatsPerRow;
+                        this.seats = seats;
+                    }
+
+    public UUID getFlightID()
+    {
+        return flightID;
+    }
+
+    public void setFlightID(UUID flightID)
+    {
+        this.flightID = flightID;
+    }
 
     public Airline getAirline()
     {
@@ -20,70 +52,94 @@ public class Flight {
     {
         this.airline = airline;
     }
-    public Double getCost()
-    {
-        return cost;
+
+    public String getDepartureLocation() {
+        return departureLocation;
     }
-    public void setCost(Double cost)
-    {
-        this.cost = cost;
+
+    public void setDepartureLocation(String departureLocation) {
+        this.departureLocation = departureLocation;
     }
-    public ArrayList<String> getAirports()
-    {
-        return airports;
+
+    public String getDestinationLocation() {
+        return destinationLocation;
     }
-    public void setAirports(ArrayList<String> airports)
-    {
-        this.airports = airports;
+
+    public void setDestinationLocation(String destinationLocation) {
+        this.destinationLocation = destinationLocation;
     }
-    public String getDate()
-    {
-        return date;
+
+    public boolean getIsConnecting() {
+        return isConnecting;
     }
-    public void setDate(String date)
-    {
-        this.date = date;
+
+    public void setIsConnecting(boolean isConnecting) {
+        this.isConnecting = isConnecting;
     }
-    public int getFlightID()
-    {
-        return Flight_ID;
+
+    public Flight getPreviousFlight() {
+        return previousFlight;
     }
-    public void setFlightID(int Flight_ID)
-    {
-        this.Flight_ID = Flight_ID;
+
+    public void setPreviousFlight(Flight previousFlight) {
+        this.previousFlight = previousFlight;
     }
-    public int getSeatCount()
-    {
-        return seatCount;
+
+    public Flight getNextFlight() {
+        return nextFlight;
     }
-    public void setSeatCount(int seatCount)
-    {
-        this.seatCount = seatCount;
+
+    public void setNextFlight(Flight nextFlight) {
+        this.nextFlight = nextFlight;
     }
-    public int getFlightDuration()
+
+    public Date getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public Date getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTimer(Date arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public double getFlightDuration()
     {
         return flightDuration;
     }
-    public void setFlightDuration(int flightDuration)
+
+    public void setFlightDuration(double flightDuration)
     {
         this.flightDuration = flightDuration;
     }
-    public Boolean isFlightFull()
-    {
-        return flightFull;
-    }
-    public void setFlightFull(Boolean flightFull)
-    {
-        this.flightFull = flightFull;
-    }
-    public void setSeatList(ArrayList<Seat> seatList)
-    {
-        this.seatList = seatList;
-    }
-    public ArrayList<Seat> getSeatList()
-    {
-        return seatList;
-    }
-   
     
+    public int getNumRows() {
+        return numRows;
+    }
+
+    public void setNumRows(int numRows) {
+        this.numRows = numRows;
+    }
+
+    public int getNumSeatsPerRow() {
+        return numSeatsPerRow;
+    }
+
+    public void setNumSeatsPerRow(int numSeatsPerRow) {
+        this.numSeatsPerRow = numSeatsPerRow;
+    }
+
+    public Seat[][] getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Seat[][] seats) {
+        this.seats = seats;
+    }
 }
