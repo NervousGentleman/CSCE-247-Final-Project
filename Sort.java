@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Sort {
 
-    private String hotelName;
-    private String flightName;
+    private ArrayList<String> hotelName;
+    private ArrayList<String> flightName;
     private int flightPrice;
     private int hotelPrice;
     private int departureTime;
