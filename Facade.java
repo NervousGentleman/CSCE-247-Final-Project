@@ -31,6 +31,10 @@ public class Facade {
     
     private boolean findAccount(String email){
         boolean rv = false;
+        for(int i = 0; i < loadedAccounts.size(); i++)
+        {
+
+        }
         // loop through accounts in list, and if you find an email that matches,
         // set "userAccount" to that account object, and change rv to true.
         return rv;
@@ -76,6 +80,10 @@ public class Facade {
 
     public boolean chooseSeat(String seatCode){
         boolean rv = true;
+        if()
+        {
+
+        }
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
         // may need some type of "fillSeat" method in Flight
         return rv;
