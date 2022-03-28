@@ -1,0 +1,58 @@
+[
+    {
+        "flightID": "...",
+        "airline": "...",
+        "departureLocation": "...",
+        "destinationLocation": "...",
+        "isConnecting": false,
+        "previousFlight": null,
+        "nextFlight": null,
+        "departureTime": 123,
+        "arrivalTime": 123,
+        "flightDuration": 1.0,
+        "numRows": 1,
+        "numSeatsPerRow": 1,
+        "seats": [
+            [
+                {
+                    "passenger": {
+                        "name": "...",
+                        "dateOfBirth": 123,
+                        "passportNumber": 123
+                    },
+                    "cost": 1.0,
+                    "class": "...",
+                    "seatRow": 1,
+                    "seatLetter": "A",
+                    "seatTaken": false
+                },
+                {
+                    "passenger": "...",
+                    "cost": 1.0,
+                    "class": "...",
+                    "seatRow": 1,
+                    "seatLetter": "A",
+                    "seatTaken": false
+                }
+            ],
+            [
+                {
+                    "passenger": "...",
+                    "cost": 1.0,
+                    "class": "...",
+                    "seatRow": 1,
+                    "seatLetter": "A",
+                    "seatTaken": false
+                },
+                {
+                    "passenger": "...",
+                    "cost": 1.0,
+                    "class": "...",
+                    "seatRow": 1,
+                    "seatLetter": "A",
+                    "seatTaken": false
+                }
+            ]
+        ] 
+    }
+]
