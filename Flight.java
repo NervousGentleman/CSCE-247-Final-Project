@@ -12,6 +12,11 @@ public class Flight {
     private boolean flightFull;
     private ArrayList<Seat> seatList;
 
+    public Flight(){
+
+    } // ending bracket of default constructor
+
+
     public Airline getAirline()
     {
         return airline;

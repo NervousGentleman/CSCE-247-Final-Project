@@ -74,9 +74,9 @@ public class Account {
     {
         return bookedFlights;
     }
-    public void addBookedFlight(ArrayList<Flight> bookedFlights)
+    public void addBookedFlight(Flight bookedFlight)
     {
-        this.bookedFlights = bookedFlights;
+        this.bookedFlights.add(bookedFlight);
     }
     public ArrayList<Passenger> getGuests()
     {
