@@ -11,7 +11,7 @@ public class Facade {
         this.availableFlights = new ArrayList<Flight>();
         this.loadedAccounts = new ArrayList<Account>();
         this.chosenFlight = new Flight(); // need to add default values in default constructor.
-        this.userAccount = new Account();
+    //  this.userAccount = new Account(); need default constructor
 
     }
 
@@ -36,16 +36,16 @@ public class Facade {
         return rv;
     }
 
-    public boolean addUserFlight(int flightChoice){ 
+    public boolean chooseFlight(int flightChoice){ 
         boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
         // user will enter number of chosen flight, and we add the corresponding flight from the list
         if(flightIndex >= 0 && flightIndex < this.availableFlights.size()){
-            this.userAccount.addBookedFlight(this.availableFlights.get(flightIndex));
+            this.chosenFlight = this.availableFlights.get(flightIndex);
             rv = true;
         }
         return rv;
-    } // ending bracket of method addUserFlight
+    } // ending bracket of method chooseFlight
 
     public void displayFlights(ArrayList<Flight> flightList){
         // display flightList by looping through and calling toString method of each flight
@@ -54,6 +54,19 @@ public class Facade {
     
     public void displayHotels(ArrayList<Hotel> hotelList){
         // display hotelList by looping through and calling toString method of each hotel
-        // print i+1 + ". " before fhotel info
+        // print i+1 + ". " before hotel info
+    }
+
+    public void displaySeats(Flight flight){
+        // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
+        
+    }
+
+    public boolean chooseSeat(String seatCode){
+        boolean rv = true;
+        // if seatCode equals an untaken seat, put user into Seat on chosenFlight
+        // may need some type of "fillSeat" method in Flight
+        return rv;
+
     }
 }

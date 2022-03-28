@@ -14,6 +14,7 @@ public class UI {
 
     public void run() {
         do{ 
+            System.out.println("Welcome to our Flight and Hotel booking Program!\n");
             mainPrompt();
             this.userChoice = checkValidInputInt();
             System.out.println(this.userChoice);
@@ -48,9 +49,8 @@ public class UI {
     } // ending bracket of method loginPrompt
 
     public void mainPrompt(){
-        System.out.println("Welcome to our Flight and Hotel booking Program!\n");
         System.out.println("******************* Main Menu *******************");
-        System.out.println("1. View Account Info\n2. Find Flight\n3. Find Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Create Account \n7. End Program\n");
+        System.out.println("1. View Account Info\n2. Find Flight\n3. Find Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Create Account \n7. View Itinerary\n8. End Program\n");
     }
 
     public int checkValidInputInt() {
@@ -63,11 +63,6 @@ public class UI {
         int rv = kb.nextInt();
         return rv;
     } // ending bracket of method checkValidInputInt
-
-    public void viewAccountPrompt(){
-        System.out.println("******************* Account *******************");
-        System.out.println("");
-    }
 
     public boolean createAccountPrompt(){
         boolean createSuccessful = false;
@@ -85,7 +80,76 @@ public class UI {
         // through if the creation is unsuccessful. If successful, save account to json.
 
         return createSuccessful;
-    }   
+    } // ending bracket of createAccountPrompt
+    
+    public void mainOptionDecider(int choice){
+
+        switch(choice){
+
+            case 1: 
+                viewAccountPrompt();
+                userChoice = checkValidInputInt();
+                viewAccountDecider(userChoice);
+                break;
+            case 2: 
+                
+                break;
+            case 3: 
+                
+                break;
+            case 4: 
+                
+                break;
+            case 5: 
+                
+                break;
+            case 6: 
+                
+                break;
+            case 7: 
+                
+                break;
+            case 8: 
+                quit = false;
+                System.out.println("Thanks for using our program!");
+                break;
+            default:
+                System.out.println("Option out of bounds! Choose an option 1 - 8");
+                break;
+
+        } // ending of switch case for mainPrompt
+
+    } // ending bracket of method mainOptionDecider
+
+    public void viewAccountPrompt(){
+        System.out.println("******************* Account *******************");
+        System.out.println("1. View Booked Flights\n2. View Flight History\n3. View Booked Rooms\n4. View Hotel History\n5. Main Menu");
+        
+    }
+
+    public void viewAccountDecider(int choice){
+       
+        switch(choice){
+            case 1:
+
+                break;
+            case 2: 
+                
+                break;
+            case 3: 
+                
+                break;
+            case 4: 
+                
+                break;
+            case 5: 
+                break;
+            default:
+                System.out.println("Option out of bounds! Choose an option 1 - 5");
+                break;
+        }
+
+    }// ending bracket of method viewAccountDecider
     
 
 } // ending bracket of class UI

@@ -147,4 +147,5 @@ public class Flight {
     public void setSeats(Seat[][] seats) {
         this.seats = seats;
     }
+
 }
