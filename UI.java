@@ -17,9 +17,11 @@ public class UI {
             System.out.println("Welcome to our Flight and Hotel booking Program!\n");
             mainPrompt();
             this.userChoice = checkValidInputInt();
-            System.out.println(this.userChoice);
+            mainOptionDecider(userChoice);
 
         } while(!quit);
+
+        kb.close();
     }
     
     public static void main(String[] args) {
@@ -110,7 +112,7 @@ public class UI {
                 
                 break;
             case 8: 
-                quit = false;
+                quit = true;
                 System.out.println("Thanks for using our program!");
                 break;
             default:
