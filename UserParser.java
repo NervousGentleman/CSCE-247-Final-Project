@@ -31,7 +31,6 @@ public class UserParser implements Parser<Account> {
 
         try {
             FileReader reader = new FileReader(c.FILE_NAME.getName());
-            JSONParser parser = new JSONParser();
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < usersJSON.size(); i++) {
