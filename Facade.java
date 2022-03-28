@@ -1,5 +1,59 @@
-public class Facade {
-    public Facade() {
+import java.util.ArrayList;
 
+public class Facade {
+    private ArrayList<Flight> availableFlights;
+    private ArrayList<Account> loadedAccounts;
+    private Flight chosenFlight;
+    private Account userAccount;
+
+    
+    public Facade() {
+        this.availableFlights = new ArrayList<Flight>();
+        this.loadedAccounts = new ArrayList<Account>();
+        this.chosenFlight = new Flight(); // need to add default values in default constructor.
+        this.userAccount = new Account();
+
+    }
+
+    public boolean createAccount(String email, String password){
+        boolean rv = false; // this will be set true if creation of the account is successful.
+                            // Meaning account obj was created and successfully written to json.
+                            // findAccount will return false if email isn't found.
+        return rv;
+    } 
+
+    public boolean loginValidation(String email, String password){
+        boolean rv = false; // set to true if email and password combo match.
+        // use find account method to get corresponding account. 
+        // use if statement to set return value (rv) to true if the Strings match.
+        return rv;
+    }
+    
+    private boolean findAccount(String email){
+        boolean rv = false;
+        // loop through accounts in list, and if you find an email that matches,
+        // set "userAccount" to that account object, and change rv to true.
+        return rv;
+    }
+
+    public boolean addUserFlight(int flightChoice){ 
+        boolean rv = false;
+        int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
+        // user will enter number of chosen flight, and we add the corresponding flight from the list
+        if(flightIndex >= 0 && flightIndex < this.availableFlights.size()){
+            this.userAccount.addBookedFlight(this.availableFlights.get(flightIndex));
+            rv = true;
+        }
+        return rv;
+    } // ending bracket of method addUserFlight
+
+    public void displayFlights(ArrayList<Flight> flightList){
+        // display flightList by looping through and calling toString method of each flight
+        // print i+1 + ". " before flight info
+    }
+    
+    public void displayHotels(ArrayList<Hotel> hotelList){
+        // display hotelList by looping through and calling toString method of each hotel
+        // print i+1 + ". " before fhotel info
     }
 }
