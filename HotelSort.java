@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-public class HotelSort implements Sort {
-    
-}
-=======
+
 import java.util.ArrayList;
 
-public class HotelSort implements Sort<Hotel> {
+public class HotelSort {
     private ArrayList<Hotel> hotels;
 
     public HotelSort(ArrayList<Hotel> hotels) {
@@ -22,4 +18,3 @@ public class HotelSort implements Sort<Hotel> {
         return ret;
     }
 }
->>>>>>> origin/main
