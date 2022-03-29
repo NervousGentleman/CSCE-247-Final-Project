@@ -56,5 +56,42 @@
                "bedType": "King" 
             }
         ]
+    },
+    {
+        "uuid": "2727380b-ad2a-44a9-b67b-10a678303c0d",
+        "name": "Lousy 7",
+        "rating": 2,
+        "petFriendly": false,
+        "hasBreakfast": true,
+        "hasPool": true,
+        "location": "Seattle, Washington",
+        "numFloors": 2,
+        "numRoomsPerFloor": 10,
+        "hotelAddress": "69 Nice Avenue",
+        "rooms": [
+            {
+               "roomType": "Regular",
+               "price": 50.0,
+               "smokerFriendly": true,
+               "bedCount": 2,
+               "bedType": "Full" 
+            },
+
+            {
+                "roomType": "Regular",
+                "price": 25.0,
+                "smokerFriendly": true,
+                "bedCount": 1,
+                "bedType": "Full"
+            },
+           
+            {
+               "roomType": "Regular",
+               "price": 75.0,
+               "smokerFriendly": true,
+               "bedCount": 1,
+               "bedType": "King" 
+            }
+        ]
     }
 ]
