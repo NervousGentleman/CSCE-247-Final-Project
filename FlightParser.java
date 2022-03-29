@@ -37,7 +37,7 @@ public class FlightParser implements Parser<Flight> {
                 UUID flightID = UUID.fromString(tempUUID);
 
                 String s = (String) flightObj.get(c.AIRLINE.getName());
-                Airline airline;
+                Airline airline = null;
                 for (Airline a : Airline.values()) {
                     if (s.equals(a.getName())) {
                         airline = a;
@@ -115,7 +115,8 @@ public class FlightParser implements Parser<Flight> {
                     }
                     seats.add(row);
                 }
-                flights.add(new Flight(flightID, airline, departureLocation, destinationLocation, isConnecting, previousFlight, nextFlight, departureTime, arrivalTime, flightDuration, numRows, numSeatsPerRow, seats));
+                flights.add(new Flight(flightID, airline, departureLocation, destinationLocation, isConnecting, 
+                            previousFlight, nextFlight, departureTime, arrivalTime, flightDuration, numRows, numSeatsPerRow, seats));
             }
         } catch (Exception e) {
             e.printStackTrace();

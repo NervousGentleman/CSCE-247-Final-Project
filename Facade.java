@@ -8,7 +8,7 @@ public class Facade {
 
     
     public Facade() {
-        this.availableFlights = FlightParser.getInstance().load());
+        this.availableFlights = FlightParser.getInstance().load();
         this.loadedAccounts = UserParser.getInstance().load();
 
     }
@@ -85,8 +85,10 @@ public class Facade {
                         return false;
                     }
                     s.setPassenger(userAccount.getPassengerSelf());
+                    return true;
                 }
             }
         }
+        return false;
     }
 }
