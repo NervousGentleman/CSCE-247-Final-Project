@@ -2,6 +2,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -32,14 +34,18 @@ public class HotelParser implements Parser<Hotel> {
 			
 			for(int i=0; i < hotelsJSON.size(); i++) {
 				JSONObject hotelJSON = (JSONObject)hotelsJSON.get(i);
-				String name = (String)hotelJSON.get(HotelJSONConstants.HOTEL_NAME.getName());
-				Double price = (Double)hotelJSON.get(HotelJSONConstants.HOTEL_PRICE.getName());
+				UUID uuid = (UUID)hotelJSON.get(HotelJSONConstants.HOTEL_UUID.getName());
+                HotelName name = (HotelName)hotelJSON.get(HotelJSONConstants.HOTEL_NAME.getName()); // maybe implemented wrong
 				int rating = (int)hotelJSON.get(HotelJSONConstants.HOTEL_RATING.getName());
                 boolean petFriendly = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_PET_FRIENDLY.getName());
-                boolean breakfast = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_BREAKFAST.getName());
-                String address = (String)hotelJSON.get(HotelJSONConstants.HOTEL_ADDRESS.getName());
-				
-				hotels.add(new Hotel(name, price, rating, petFriendly, breakfast, address)); // need to add rooms
+                boolean hasBreakfast = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_BREAKFAST.getName());
+                boolean hasPool = (boolean)hotelJSON.get(HotelJSONConstants.HOTEL_POOL.getName());
+                String location = (String)hotelJSON.get(HotelJSONConstants.HOTEL_LOCATION.getName());
+                int numFloors = (int)hotelJSON.get(HotelJSONConstants.HOTEL_FLOORS_NUMBER.getName());
+                int numRoomsPerFloor = (int)hotelJSON.get(HotelJSONConstants.HOTEL_ROOMS_PER_FLOOR.getName());
+                String address = (String)hotelJSON.get(HotelJSONConstants.HOTEL_ADDRESS.getName()); // will prob delete address 
+				Room[][] rooms; // need to figure out how to take in and out of json
+				hotels.add(new Hotel(uuid, name, rating, petFriendly, hasBreakfast, hasPool, location, numFloors, numRoomsPerFloor, rooms)); // need to add rooms
 			}
 			
 			return hotels;
@@ -80,12 +86,16 @@ public class HotelParser implements Parser<Hotel> {
     public static JSONObject getHotelJson(Hotel hotel){
 
         JSONObject hotelDetails = new JSONObject();
+        hotelDetails.put(HotelJSONConstants.HOTEL_UUID.getName(), hotel.getUUID());
         hotelDetails.put(HotelJSONConstants.HOTEL_NAME.getName(), hotel.getName());
-        hotelDetails.put(HotelJSONConstants.HOTEL_PRICE.getName(), hotel.getPrice());
         hotelDetails.put(HotelJSONConstants.HOTEL_RATING.getName(), hotel.getRating());
-        hotelDetails.put(HotelJSONConstants.HOTEL_PET_FRIENDLY.getName(), hotel.isPet_Friendly());
-        hotelDetails.put(HotelJSONConstants.HOTEL_BREAKFAST.getName(), hotel.hasBreakfast());
-        hotelDetails.put(HotelJSONConstants.HOTEL_ADDRESS.getName(), hotel.getHotelAddress());
+        hotelDetails.put(HotelJSONConstants.HOTEL_PET_FRIENDLY.getName(), hotel.isPetFriendly());
+        hotelDetails.put(HotelJSONConstants.HOTEL_BREAKFAST.getName(), hotel.getHasBreakfast());
+        hotelDetails.put(HotelJSONConstants.HOTEL_POOL.getName(), hotel.getHasPool());
+        hotelDetails.put(HotelJSONConstants.HOTEL_LOCATION.getName(), hotel.getLocation());
+        hotelDetails.put(HotelJSONConstants.HOTEL_FLOORS_NUMBER.getName(), hotel.getNumFloors());
+        hotelDetails.put(HotelJSONConstants.HOTEL_ROOMS_PER_FLOOR.getName(), hotel.getNumRoomsPerFloor());
+        
         
         return hotelDetails;
 

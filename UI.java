@@ -2,11 +2,15 @@ import java.util.Scanner;
 
 public class UI {
 
+    private Facade facade;
     private boolean quit;
+    private boolean quitAccount; // allows us to exit account sub menu
     private int userChoice;
     private Scanner kb;
     public UI() {
+        this.facade = new Facade();
         this.quit = false;
+        this.quitAccount = false;
         this.userChoice = -1;
         this.kb = new Scanner(System.in);
 
@@ -52,7 +56,7 @@ public class UI {
 
     public void mainPrompt(){
         System.out.println("******************* Main Menu *******************");
-        System.out.println("1. View Account Info\n2. Find Flight\n3. Find Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Create Account \n7. View Itinerary\n8. End Program\n");
+        System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Create Account \n7. View Itinerary\n8. End Program\n");
     }
 
     public int checkValidInputInt() {
@@ -89,12 +93,14 @@ public class UI {
         switch(choice){
 
             case 1: 
-                viewAccountPrompt();
-                userChoice = checkValidInputInt();
-                viewAccountDecider(userChoice);
+                do {
+                    viewAccountPrompt();
+                    userChoice = checkValidInputInt();
+                    viewAccountDecider(userChoice);
+                } while(!quitAccount);
                 break;
             case 2: 
-                
+                findFlightPrompt();
                 break;
             case 3: 
                 
@@ -130,21 +136,26 @@ public class UI {
     }
 
     public void viewAccountDecider(int choice){
-       
+        
         switch(choice){
             case 1:
-
+                System.out.println("******************* Booked Flights *******************");
+                facade.displayBookedFlights();
                 break;
             case 2: 
-                
+                System.out.println("******************* Flight History *******************");
+                facade.displayFlightHistory();
                 break;
             case 3: 
-                
+                System.out.println("******************* Booked Hotels *******************");
+                facade.displayBookedHotels();
                 break;
             case 4: 
-                
+                System.out.println("******************* Hotel History *******************");
+                facade.displayHotelHistory();
                 break;
             case 5: 
+                quitAccount = true;
                 break;
             default:
                 System.out.println("Option out of bounds! Choose an option 1 - 5");
@@ -153,5 +164,25 @@ public class UI {
 
     }// ending bracket of method viewAccountDecider
     
+    public void findFlightPrompt(){
+        String startingCode = "";
+        String destinationCode = "";
+        System.out.println("******************* Find Flight *******************");
+        System.out.print("Enter the Airport Code of your starting airport: ");
+        startingCode = kb.nextLine();
+        System.out.print("Enter the Airport Code of your destination: ");
+        destinationCode = kb.nextLine();
+        facade.searchFlights(startingCode, destinationCode);
+        facade.displaySearchedFlights();
+        // need to prompt to choose and ask additional questions
+
+    }
+
+    public void cancelFlightPrompt(){
+        System.out.println("******************* Cancel Flight *******************");
+        facade.displayBookedFlights();
+        System.out.print("Enter the number of the flight you wish to cancel: ");
+        facade.deleteUserFlight(checkValidInputInt());
+    }
 
 } // ending bracket of class UI

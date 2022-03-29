@@ -2,15 +2,22 @@ import java.util.ArrayList;
 
 public class Facade {
     private ArrayList<Flight> availableFlights;
+    private ArrayList<Flight> preferenceFlights; // flight list after being sorted or narrowed
+    private ArrayList<Hotel> availableHotels;
     private ArrayList<Account> loadedAccounts;
+    private Hotel chosenHotel;
     private Flight chosenFlight;
     private Account userAccount;
 
     
     public Facade() {
         this.availableFlights = new ArrayList<Flight>();
+        this.preferenceFlights = new ArrayList<Flight>();
+        this.availableHotels = new ArrayList<Hotel>();
         this.loadedAccounts = new ArrayList<Account>();
         this.chosenFlight = new Flight(); // need to add default values in default constructor.
+        this.chosenHotel = new Hotel(); // need to add default values in default constructor.
+        this.userAccount = new Account();
     //  this.userAccount = new Account(); need default constructor
 
     }
@@ -62,11 +69,47 @@ public class Facade {
         
     }
 
+    public void displayBookedFlights(){
+        displayFlights(this.userAccount.getBookedFlights());
+    } // ending bracket of method display booked flights
+
+    public void displayFlightHistory(){
+        displayFlights(this.userAccount.getFlightHistory());
+    }
+
+    public void displayBookedHotels(){
+        displayHotels(this.userAccount.getBookedHotels());
+    }
+
+    public void displayHotelHistory(){
+        displayHotels(this.userAccount.getHotelHistory());
+    }
+
+    public void displaySearchedFlights(){
+        displayFlights(this.preferenceFlights);
+    }
+
     public boolean chooseSeat(String seatCode){
         boolean rv = true;
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
-        // may need some type of "fillSeat" method in Flight
         return rv;
 
     }
+
+    public void searchFlights(String startingCode, String endingCode){
+        // loop through available flights and if the starting and ending codes are the same then add
+        // flight to sublist "preferenceFlights"
+    }
+
+    public boolean deleteUserFlight(int flightChoice){
+        boolean rv = false;
+        int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
+        // user will enter number of chosen flight, and we add the corresponding flight from the list
+        if(flightIndex >= 0 && flightIndex < this.userAccount.getBookedFlights().size()){
+            this.userAccount.getBookedFlights().remove(flightIndex);
+            rv = true;
+        }
+        return rv;
+    }
+
 }

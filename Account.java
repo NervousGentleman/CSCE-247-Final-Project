@@ -18,6 +18,10 @@ public class Account {
     private ArrayList<Passenger> guests;
     private Passenger passengerSelf;
 
+    public Account(){
+
+    } // ending bracket of default constructor
+
     public Account(UUID uuid, String email, String password, String name, Date dateOfBirth, int passportNumber,
                     ArrayList<Flight> flightHistory, ArrayList<Hotel> hotelHistory, ArrayList<Flight> bookedFlights,
                     ArrayList<Hotel> bookedHotels, boolean frequentFlyer, boolean smoker, ArrayList<Passenger> guests,

@@ -12,6 +12,10 @@ public class Hotel {
     private int numRoomsPerFloor;
     private Room[][] rooms;
 
+    public Hotel(){
+
+    } // ending bracket of default constructor for Hotel
+
     public Hotel(UUID uuid, HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
                 String location, int numFloors, int numRoomsPerFloor, Room[][] rooms) {
                     this.uuid = uuid;
