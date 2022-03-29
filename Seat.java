@@ -6,6 +6,7 @@ public class Seat {
     private int seatRow;
     private String seatLetter;
     private boolean seatTaken;
+    private String seatCode;
 
     public Seat(Passenger passenger, double cost, SeatClass seatClass, int seatRow, String seatLettrer,
                 boolean seatTaken) {
@@ -15,6 +16,7 @@ public class Seat {
                     this.seatRow = seatRow;
                     this.seatLetter = seatLettrer;
                     this.seatTaken = seatTaken;
+                    seatCode = seatRow + seatLetter;
                 }
 
     public Passenger getPassenger()
@@ -73,5 +75,9 @@ public class Seat {
     public void setSeatTaken(boolean seatTaken)
     {
         this.seatTaken = seatTaken;
+    }
+
+    public String getSeatCode() {
+        return seatCode;
     }
 }
