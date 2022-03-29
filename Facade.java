@@ -9,35 +9,43 @@ public class Facade {
     
     public Facade() {
         this.availableFlights = new ArrayList<Flight>();
-        this.loadedAccounts = new ArrayList<Account>();
+        this.loadedAccounts = UserParser.getInstance().load();
         this.chosenFlight = new Flight(); // need to add default values in default constructor.
     //  this.userAccount = new Account(); need default constructor
 
     }
 
     public boolean createAccount(String email, String password){
-        boolean rv = false; // this will be set true if creation of the account is successful.
-                            // Meaning account obj was created and successfully written to json.
-                            // findAccount will return false if email isn't found.
-        return rv;
+        if (findAccount(email) == null) {
+            userAccount = new Account();
+            userAccount.setEmail(email);
+            userAccount.setPassword(password);
+            loadedAccounts.add(userAccount);
+            return true;
+        }
+        return false;
     } 
 
     public boolean loginValidation(String email, String password){
-        boolean rv = false; // set to true if email and password combo match.
-        // use find account method to get corresponding account. 
-        // use if statement to set return value (rv) to true if the Strings match.
-        return rv;
+        Account a = findAccount(email);
+        if (a == null) {
+            return false;
+        } else if (!a.getPassword().equals(password)) {
+            return false;
+        }
+        userAccount = a;
+        return true;
     }
     
-    private boolean findAccount(String email){
-        boolean rv = false;
-        for(int i = 0; i < loadedAccounts.size(); i++)
-        {
-
+    private Account findAccount(String email){
+        for (Account a : loadedAccounts) {
+            if(a.getEmail().equals(email)) {
+                return a;
+            }
         }
+        return null;
         // loop through accounts in list, and if you find an email that matches,
         // set "userAccount" to that account object, and change rv to true.
-        return rv;
     }
 
     public boolean chooseFlight(int flightChoice){ 
