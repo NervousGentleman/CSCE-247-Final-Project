@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-public class FlightSort {
-    
-=======
 import java.util.ArrayList;
 
-public class FlightSort implements Sort<Flight> {
+public class FlightSort {
     private ArrayList<Flight> flights;
 
     public FlightSort(ArrayList<Flight> flights) {
@@ -30,5 +26,3 @@ public class FlightSort implements Sort<Flight> {
         ArrayList<Flight> ret = flights;
         return ret;
     }
->>>>>>> origin/main
-}
