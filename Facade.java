@@ -8,10 +8,8 @@ public class Facade {
 
     
     public Facade() {
-        this.availableFlights = new ArrayList<Flight>();
+        this.availableFlights = FlightParser.getInstance().load());
         this.loadedAccounts = UserParser.getInstance().load();
-        this.chosenFlight = new Flight(); // need to add default values in default constructor.
-    //  this.userAccount = new Account(); need default constructor
 
     }
 
@@ -49,14 +47,13 @@ public class Facade {
     }
 
     public boolean chooseFlight(int flightChoice){ 
-        boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
         // user will enter number of chosen flight, and we add the corresponding flight from the list
         if(flightIndex >= 0 && flightIndex < this.availableFlights.size()){
             this.chosenFlight = this.availableFlights.get(flightIndex);
-            rv = true;
+            return true;
         }
-        return rv;
+        return false;
     } // ending bracket of method chooseFlight
 
     public void displayFlights(ArrayList<Flight> flightList){
@@ -77,24 +74,19 @@ public class Facade {
         }
     }
 
-    public void displaySeats(Flight flight){
-        // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
-        for(int i = 0; i < flight.getSeats().length; i++)
-        {
-            
-        }
-        
-    }
-
     public boolean chooseSeat(String seatCode){
-        boolean rv = true;
-        if()
-        {
-
-        }
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
         // may need some type of "fillSeat" method in Flight
-        return rv;
-
+        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
+        for (ArrayList<Seat> a : seats) {
+            for (Seat s : a) {
+                if (s.getSeatCode().equals(seatCode)) {
+                    if (s.isSeatTaken()) {
+                        return false;
+                    }
+                    s.setPassenger(userAccount.getPassengerSelf());
+                }
+            }
+        }
     }
 }
