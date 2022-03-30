@@ -1,5 +1,5 @@
 public enum FlightJSONConstants {
-    FILE_NAME("JSON/flight.json"),
+    FILE_NAME("JSON/Flights.json"),
     FLIGHT_ID("flightID"),
     AIRLINE("airline"),
     DEPARTURE_LOCATION("departureLocation"),
