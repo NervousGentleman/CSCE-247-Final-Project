@@ -80,4 +80,14 @@ public class Seat {
     public String getSeatCode() {
         return seatCode;
     }
+
+    public String toString() {
+        String ret = seatClass.getName() + " seat " + seatCode + " costing $" + cost;
+        if (isSeatTaken()) {
+            ret += " occupied.";
+        } else {
+            ret += "unoccupied.";
+        }
+        return ret;
+    }
 }

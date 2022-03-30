@@ -152,4 +152,9 @@ public class Flight {
         this.seats = seats;
     }
 
+    public String toString() {
+        String ret = "Flight " + airline.getName() + " departing from " + departureLocation + " at " + departureTime + " arriving at" 
+        + destinationLocation + " at " + arrivalTime + ". Flight duration " + flightDuration + " hours.";
+        return ret;
+    }
 }

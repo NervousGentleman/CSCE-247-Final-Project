@@ -116,4 +116,24 @@ public class Hotel {
     public void setRooms(ArrayList<ArrayList<Room>> rooms) {
         this.rooms = rooms;
     }
+
+    public String toString() {
+        String ret = rating + " star hotel " + name.getName() + " located at " + location ". ";
+        if (petFriendly) {
+            ret += "Pets allowed. ";
+        } else {
+            ret += "No pets allowed. ";
+        }
+        if (hasBreakfast) {
+            ret+= "Has breakfast. ";
+        } else {
+            ret+= "Doesn't have breakfast. ";
+        }
+        if (hasPool) {
+            ret += "Has a pool. ";
+        } else {
+            ret += "Doesn't have a pool. ";
+        }
+        return ret;
+    }
 }
