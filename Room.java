@@ -92,4 +92,18 @@ public class Room {
     {
         this.bedType = bedType;
     }
+
+    public String toString() {
+        String ret = roomType.getName() + " room " + roomNumber + " with " + numberBeds + " " + bedType.getName() + " beds costing " + price + ".";
+        if (smokerFriendly) {
+            ret += " Smoker friendly.";
+        } else {
+            ret += " No smoking.";
+        }
+        ret += "Dates occupied:\n";
+        for (int i = 0; i < datesOccupied.size(); i++) {
+            ret += datesOccupied.get(i)[0] + " - " + datesOccupied.get(i)[1] + "\n";
+        }
+        return ret;
+    }
 }
