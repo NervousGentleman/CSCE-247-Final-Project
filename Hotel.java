@@ -118,7 +118,7 @@ public class Hotel {
     }
 
     public String toString() {
-        String ret = rating + " star hotel " + name.getName() + " located at " + location ". ";
+        String ret = rating + " star hotel " + name.getName() + " located at " + location + ". ";
         if (petFriendly) {
             ret += "Pets allowed. ";
         } else {
