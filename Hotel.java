@@ -120,4 +120,10 @@ public class Hotel {
     public void setRooms(ArrayList<ArrayList<Room>> rooms) {
         this.rooms = rooms;
     }
+
+    public String toString(){
+        return "Hotel Name: " + this.getName() + " Location: " + this.getLocation() +" Rating: " + this.getRating() + " Pet Friendly: " + this.isPetFriendly() + " Breakfast: "
+        + this.getHasBreakfast() + " Pool: " + this.getHasPool();
+
+    }
 }

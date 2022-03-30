@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+  
 public class UI {
 
     private Facade facade;
@@ -19,6 +19,7 @@ public class UI {
     public void run() {
         do{ 
             System.out.println("Welcome to our Flight and Hotel booking Program!\n");
+            while(!loginPrompt()); // loops until loginPrompt returns true
             mainPrompt();
             this.userChoice = checkValidInputInt();
             mainOptionDecider(userChoice);
@@ -36,19 +37,22 @@ public class UI {
     public boolean loginPrompt(){
         boolean loginSuccessful = false;
         String tempUserInput = "";
-        String tempUsername = "";
+        String tempEmail = "";
         String tempPassword = "";
         
         System.out.print("Do you have an account? (Y/N): ");
         tempUserInput = kb.nextLine();
         if(tempUserInput.equalsIgnoreCase("y")){
-            System.out.print("Please enter your username: ");
-            tempUsername = kb.nextLine();
-             // if account user is found, prompt for password and check against the stored password.
+            System.out.print("Please enter your email: ");
+            tempEmail = kb.nextLine();
+            tempPassword = kb.nextLine();
+            loginSuccessful = facade.loginValidation(tempEmail, tempPassword); 
+            // if account user is found, prompt for password and check against the stored password.
              // if they match, log the user in, set return value to true, and show them the main prompt
              // if they dont, then notify user and prompt again
         } else if(tempUserInput.equalsIgnoreCase("n")){
-            createAccountPrompt();
+            while(!createAccountPrompt());
+            loginSuccessful = true;
         }
             // ending bracket of if else statement checking if user input is y or n
         return loginSuccessful;
@@ -56,13 +60,13 @@ public class UI {
 
     public void mainPrompt(){
         System.out.println("******************* Main Menu *******************");
-        System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Create Account \n7. View Itinerary\n8. End Program\n");
+        System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. View Itinerary\n7. End Program\n");
     }
 
     public int checkValidInputInt() {
 
         while(!kb.hasNextInt()) {
-            System.out.println("Invalid Option! Please enter a number in range!");
+            System.out.println("Invalid Option! Please enter an integer!");
             kb.next();
         } // ending bracket of while loop checking if valid input
        
@@ -75,11 +79,23 @@ public class UI {
         
         String tempEmail = "";
         String tempPassword = "";
+        String name = "";
+        String dateOfBirth = "";
+        int passportNumber = -1;
         System.out.println("******************* Create Account *******************");
         System.out.print("Please enter your email address: ");
         tempEmail = kb.nextLine();
         System.out.print("Please enter your desired password: ");
         tempPassword = kb.nextLine();
+        System.out.print("Please enter your full name: ");
+        name = kb.nextLine();
+        System.out.print("Please enter your date of birth (dd/MM/yyyy): ");
+        dateOfBirth = kb.nextLine();
+        System.out.print("Please enter your passport number: ");
+        passportNumber = checkValidInputInt();
+
+        createSuccessful = facade.createAccount(tempEmail, tempPassword, name, facade.dateConverter(dateOfBirth), passportNumber);
+
 
         // if else statement here to notify user if their account was successfully created or not
         // we could make this createAccount method return a boolean value if we want to loop them back
@@ -106,23 +122,20 @@ public class UI {
                 
                 break;
             case 4: 
-                
+                cancelFlightPrompt();
                 break;
             case 5: 
-                
+                cancelHotelPrompt();
                 break;
             case 6: 
-                
+                facade.viewItinerary();
                 break;
             case 7: 
-                
-                break;
-            case 8: 
                 quit = true;
                 System.out.println("Thanks for using our program!");
                 break;
             default:
-                System.out.println("Option out of bounds! Choose an option 1 - 8");
+                System.out.println("Option out of bounds! Choose an option 1 - 7");
                 break;
 
         } // ending of switch case for mainPrompt
@@ -167,14 +180,31 @@ public class UI {
     public void findFlightPrompt(){
         String startingCode = "";
         String destinationCode = "";
+        int flightChoiceInt = -1;
+        int guestAmount = 0;
+        boolean validFlight = false;
         System.out.println("******************* Find Flight *******************");
         System.out.print("Enter the Airport Code of your starting airport: ");
         startingCode = kb.nextLine();
         System.out.print("Enter the Airport Code of your destination: ");
         destinationCode = kb.nextLine();
+        if(guestPrompt()){
+            System.out.print("Enter the amount of guests: ");
+            guestAmount = checkValidInputInt();
+            guestCreator(guestAmount);
+        } // ending bracket of if statement
         facade.searchFlights(startingCode, destinationCode);
+        // sort options here
         facade.displaySearchedFlights();
-        // need to prompt to choose and ask additional questions
+        
+        while(!validFlight){
+            System.out.print("\nEnter the number of the flight you want to book: ");
+            flightChoiceInt = checkValidInputInt();
+            validFlight = facade.chooseFlight(flightChoiceInt);
+        } // ending bracket of while loop
+
+        // display seats and choose for self and guests
+
 
     }
 
@@ -182,7 +212,49 @@ public class UI {
         System.out.println("******************* Cancel Flight *******************");
         facade.displayBookedFlights();
         System.out.print("Enter the number of the flight you wish to cancel: ");
-        facade.deleteUserFlight(checkValidInputInt());
+        if(facade.deleteUserFlight(checkValidInputInt())){
+            System.out.println("\nFlight Successfully Cancelled");
+        }
     }
 
+    public void cancelHotelPrompt(){
+        System.out.println("******************* Cancel Hotel *******************");
+        facade.displayBookedHotels();
+        System.out.print("Enter the number of the hotel you wish to cancel: ");
+        if(facade.deleteUserHotel(checkValidInputInt())){
+            System.out.println("\nHotel Successfully Cancelled");
+        }
+    }
+
+    public boolean guestPrompt(){
+        boolean hasGuests = false;
+        String guestResponse = "";
+        System.out.println("Do you have guest you want to book for?");
+        guestResponse = kb.nextLine();
+        if(guestResponse.contains("y") || guestResponse.contains("Y")){
+            hasGuests = true;
+        } else if(guestResponse.contains("n") || guestResponse.contains("N")){
+            hasGuests = false;
+        } else {
+            hasGuests = false;
+        }
+
+        return hasGuests;
+    }
+
+    public void guestCreator(int amountOfGuests){
+        String tempGuestName = "";
+        String tempDateOfBirth = "";
+        int tempPassportNumber = -1;
+
+        for(int i = 0; i < amountOfGuests; i++){
+            System.out.println("Enter the full name of guest #" + i+1 + ": ");
+            tempGuestName = kb.nextLine();
+            System.out.print("Enter their date of birth (dd/MM/yyyy): "); // maybe add valid bday format check
+            tempDateOfBirth = kb.nextLine();
+            System.out.print("Enter their passport number: ");
+            tempPassportNumber = checkValidInputInt();
+            facade.addGuest(tempGuestName, facade.dateConverter(tempDateOfBirth), tempPassportNumber);
+        }
+    }
 } // ending bracket of class UI

@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 
 public class Facade {
     private ArrayList<Flight> availableFlights;
@@ -8,30 +11,28 @@ public class Facade {
     private Hotel chosenHotel;
     private Flight chosenFlight;
     private Account userAccount;
-
+    private ArrayList<Passenger> guests;
+    private Itinerary itinerary;
     
     public Facade() {
-<<<<<<< HEAD
-        this.availableFlights = new ArrayList<Flight>();
+        this.availableFlights = FlightParser.getInstance().load();
+        this.availableHotels = HotelParser.getInstance().load();
+        this.loadedAccounts = UserParser.getInstance().load();
         this.preferenceFlights = new ArrayList<Flight>();
-        this.availableHotels = new ArrayList<Hotel>();
-        this.loadedAccounts = new ArrayList<Account>();
+        this.guests = new ArrayList<Passenger>(); // at some point we set userAccount guests to this
         this.chosenFlight = new Flight(); // need to add default values in default constructor.
         this.chosenHotel = new Hotel(); // need to add default values in default constructor.
         this.userAccount = new Account();
-    //  this.userAccount = new Account(); need default constructor
-=======
-        this.availableFlights = FlightParser.getInstance().load();
-        this.loadedAccounts = UserParser.getInstance().load();
->>>>>>> main
-
     }
 
-    public boolean createAccount(String email, String password){
+    public boolean createAccount(String email, String password, String name, Date dateOfBirth, int passportNumber){
         if (findAccount(email) == null) {
             userAccount = new Account();
             userAccount.setEmail(email);
             userAccount.setPassword(password);
+            userAccount.setName(name);
+            userAccount.setDateOfBirth(dateOfBirth);
+            userAccount.setPassportNumber(passportNumber);
             loadedAccounts.add(userAccount);
             return true;
         }
@@ -61,31 +62,33 @@ public class Facade {
     }
 
     public boolean chooseFlight(int flightChoice){ 
+        boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
         // user will enter number of chosen flight, and we add the corresponding flight from the list
-        if(flightIndex >= 0 && flightIndex < this.availableFlights.size()){
-            this.chosenFlight = this.availableFlights.get(flightIndex);
-            return true;
+        if(flightIndex >= 0 && flightIndex < this.preferenceFlights.size()){
+            this.chosenFlight = this.preferenceFlights.get(flightIndex);
+            rv = true;
         }
-        return false;
+        return rv;
     } // ending bracket of method chooseFlight
 
     public void displayFlights(ArrayList<Flight> flightList){
-        // display flightList by looping through and calling toString method of each flight
-        // print i+1 + ". " before flight info
-        for(int i = 0; i < flightList.size(); i++)
-        {
+        for(int i = 0; i < flightList.size(); i++) {
             System.out.println(flightList.get(i).toString());
         }
     }
     
     public void displayHotels(ArrayList<Hotel> hotelList){
-        // display hotelList by looping through and calling toString method of each hotel
-        // print i+1 + ". " before hotel info
-        for(int i = 0; i < hotelList.size(); i++)
-        {
+        for(int i = 0; i < hotelList.size(); i++) {
             System.out.println(hotelList.get(i).toString());
         }
+        // display hotelList by looping through and calling toString method of each hotel
+        // print i+1 + ". " before hotel info
+    }
+
+    public void displaySeats(Flight flight){
+        // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
+        
     }
 
     public void displayBookedFlights(){
@@ -109,31 +112,19 @@ public class Facade {
     }
 
     public boolean chooseSeat(String seatCode){
+        boolean rv = true;
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
-<<<<<<< HEAD
         return rv;
 
-=======
-        // may need some type of "fillSeat" method in Flight
-        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
-        for (ArrayList<Seat> a : seats) {
-            for (Seat s : a) {
-                if (s.getSeatCode().equals(seatCode)) {
-                    if (s.isSeatTaken()) {
-                        return false;
-                    }
-                    s.setPassenger(userAccount.getPassengerSelf());
-                    return true;
-                }
-            }
-        }
-        return false;
->>>>>>> main
     }
 
     public void searchFlights(String startingCode, String endingCode){
-        // loop through available flights and if the starting and ending codes are the same then add
-        // flight to sublist "preferenceFlights"
+        for(Flight tempFlight : this.availableFlights){
+
+            if(startingCode.equalsIgnoreCase(tempFlight.getDepartureLocation()) && endingCode.equalsIgnoreCase(tempFlight.getDestinationLocation())){
+                preferenceFlights.add(tempFlight);
+            }
+        }
     }
 
     public boolean deleteUserFlight(int flightChoice){
@@ -146,5 +137,36 @@ public class Facade {
         }
         return rv;
     }
+    
+    public boolean deleteUserHotel(int hotelChoice){
+        boolean rv = false;
+        int hotelIndex = hotelChoice - 1;  
+        if(hotelIndex >= 0 && hotelIndex < this.userAccount.getBookedHotels().size()){
+            this.userAccount.getBookedHotels().remove(hotelIndex);
+            rv = true;
+        }
+        return rv;
+    }
 
+    public Date dateConverter(String date){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date tempBirthDate = new Date();
+        try {
+            tempBirthDate = sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } // ending of try catch block
+
+        return tempBirthDate;
+    }
+
+    public void addGuest(String name, Date dateOfBirth, int passportNumber){
+        Passenger tempPassenger = new Passenger(name, dateOfBirth, passportNumber);
+        this.guests.add(tempPassenger);
+    }
+
+    public void viewItinerary(){
+        this.itinerary = new Itinerary(this.userAccount);
+        this.itinerary.print();
+    }
 }

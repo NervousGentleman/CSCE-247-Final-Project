@@ -1,17 +1,10 @@
 public enum HotelJSONConstants {
    HOTEL_FILE_NAME("JSON/Hotel.json"),
-   HOTEL_UUID("uuid"),
    HOTEL_NAME("name"),
+   HOTEL_PRICE("price"),
    HOTEL_RATING("rating"),
    HOTEL_PET_FRIENDLY("petFriendly"),
    HOTEL_BREAKFAST("hasBreakfast"),
-<<<<<<< HEAD
-   HOTEL_POOL("hasPool"),
-   HOTEL_LOCATION("location"),
-   HOTEL_FLOORS_NUMBER("numFloors"),
-   HOTEL_ROOMS_PER_FLOOR("numRoomsPerFloor"),
-   HOTEL_ADDRESS("hotelAddress");
-=======
    HOTEL_ADDRESS("location"),
    HOTEL_UUID("uuid"),
    HOTEL_POOL("hasPool"),
@@ -29,7 +22,6 @@ public enum HotelJSONConstants {
    OCCUPANT_DATE_OF_BIRTH("dateOfBirth"),
    OCCUPANT_PASSPORT_NUMBER("passportNumber"),
    HOTEL_ROOM_DATES_OCCUPIED("datesOccupied");
->>>>>>> main
    
    private final String name;
 
