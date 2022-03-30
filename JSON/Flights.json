@@ -1,7 +1,7 @@
 [
     {
-        "flightID": "...",
-        "airline": "...",
+        "flightID": "b4e1c078-2405-43ef-859c-12157bb0ac08",
+        "airline": "Epselon Airlines",
         "departureLocation": "...",
         "destinationLocation": "...",
         "isConnecting": false,
@@ -21,33 +21,7 @@
                         "passportNumber": 123
                     },
                     "cost": 1.0,
-                    "class": "...",
-                    "seatRow": 1,
-                    "seatLetter": "A",
-                    "seatTaken": false
-                },
-                {
-                    "passenger": "...",
-                    "cost": 1.0,
-                    "class": "...",
-                    "seatRow": 1,
-                    "seatLetter": "A",
-                    "seatTaken": false
-                }
-            ],
-            [
-                {
-                    "passenger": "...",
-                    "cost": 1.0,
-                    "class": "...",
-                    "seatRow": 1,
-                    "seatLetter": "A",
-                    "seatTaken": false
-                },
-                {
-                    "passenger": "...",
-                    "cost": 1.0,
-                    "class": "...",
+                    "class": "Economy",
                     "seatRow": 1,
                     "seatLetter": "A",
                     "seatTaken": false

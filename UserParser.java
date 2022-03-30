@@ -34,7 +34,6 @@ public class UserParser implements Parser<Account> {
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < usersJSON.size(); i++) {
-                System.out.println(i);
                 JSONObject userObj = (JSONObject) usersJSON.get(i);
 
                 String stringUUID = (String) userObj.get(c.UUID.getName());

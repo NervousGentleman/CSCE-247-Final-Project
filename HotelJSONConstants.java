@@ -4,8 +4,24 @@ public enum HotelJSONConstants {
    HOTEL_PRICE("price"),
    HOTEL_RATING("rating"),
    HOTEL_PET_FRIENDLY("petFriendly"),
-   HOTEL_BREAKFAST("breakfast"),
-   HOTEL_ADDRESS("hotelAddress");
+   HOTEL_BREAKFAST("hasBreakfast"),
+   HOTEL_ADDRESS("location"),
+   HOTEL_UUID("uuid"),
+   HOTEL_POOL("hasPool"),
+   HOTEL_NUM_FLOORS("numFloors"),
+   HOTEL_NUM_ROOMS_PER_FLOOR("numRoomsPerFloor"),
+   HOTEL_ROOMS("rooms"),
+   HOTEL_ROOM_NUMBER("roomNumber"),
+   HOTEL_ROOM_TYPE("roomType"),
+   HOTEL_ROOM_PRICE("price"),
+   HOTEL_ROOM_SMOKER_FRIENDLY("smokerFriendly"),
+   HOTEL_ROOM_BED_COUNT("bedCount"),
+   HOTEL_ROOM_BED_TYPE("bedType"),
+   HOTEL_ROOM_OCCUPANTS("occupants"),
+   OCCUPANT_NAME("name"),
+   OCCUPANT_DATE_OF_BIRTH("dateOfBirth"),
+   OCCUPANT_PASSPORT_NUMBER("passportNumber"),
+   HOTEL_ROOM_DATES_OCCUPIED("datesOccupied");
    
    private final String name;
 

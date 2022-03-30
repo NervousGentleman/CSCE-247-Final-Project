@@ -21,6 +21,7 @@ public class Flight {
                     boolean isConnecting, Flight previousFlight, Flight nextFlight, Date departureTime,
                     Date arrivalTime, double flightDuration, int numRows, int numSeatsPerRow, ArrayList<ArrayList<Seat>> seats) {
                         this.flightID = flightID;
+                        this.airline = airline;
                         this.departureLocation = departureLocation;
                         this.destinationLocation = destinationLocation;
                         this.isConnecting = isConnecting;

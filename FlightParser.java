@@ -103,7 +103,7 @@ public class FlightParser implements Parser<Flight> {
                         String temp = (String) seatObj.get(c.CLASS.getName());
                         SeatClass seatClass = null;
                         for (SeatClass sc : SeatClass.values()) {
-                            if (sc.equals(temp)) {
+                            if (temp.equals(sc.getName())) {
                                 seatClass = sc;
                                 break;
                             }
@@ -172,6 +172,7 @@ public class FlightParser implements Parser<Flight> {
                 seatsArray.add(rowArray);
             }
             flightObj.put(c.SEATS.getName(), seatsArray);
+            flightArray.add(flightObj);
         }
 
         try {
