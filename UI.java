@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class UI {
 
     private boolean quit;
@@ -11,7 +10,6 @@ public class UI {
         this.kb = new Scanner(System.in);
 
     }
-
     public void run() {
         do{ 
             mainPrompt();
