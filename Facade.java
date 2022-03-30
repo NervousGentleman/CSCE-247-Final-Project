@@ -6,6 +6,7 @@ import java.util.Date;
 public class Facade {
     private ArrayList<Flight> availableFlights;
     private ArrayList<Flight> preferenceFlights; // flight list after being sorted or narrowed
+    private ArrayList<Hotel> preferenceHotels;
     private ArrayList<Hotel> availableHotels;
     private ArrayList<Account> loadedAccounts;
     private Hotel chosenHotel;
@@ -19,6 +20,7 @@ public class Facade {
         this.availableHotels = HotelParser.getInstance().load();
         this.loadedAccounts = UserParser.getInstance().load();
         this.preferenceFlights = new ArrayList<Flight>();
+        this.preferenceHotels = new ArrayList<Hotel>();
         this.guests = new ArrayList<Passenger>(); // at some point we set userAccount guests to this
         this.chosenFlight = new Flight(); // need to add default values in default constructor.
         this.chosenHotel = new Hotel(); // need to add default values in default constructor.
@@ -72,6 +74,16 @@ public class Facade {
         return rv;
     } // ending bracket of method chooseFlight
 
+    public boolean chooseHotel(int hotelChoice){
+        boolean rv = false;
+        int hotelIndex = hotelChoice - 1;
+        if(hotelIndex >= 0 && hotelIndex < this.preferenceHotels.size()){
+            this.chosenHotel = this.preferenceHotels.get(hotelIndex);
+            rv = true;
+        }
+        return rv;
+    }
+
     public void displayFlights(ArrayList<Flight> flightList){
         for(int i = 0; i < flightList.size(); i++) {
             System.out.println(flightList.get(i).toString());
@@ -111,10 +123,38 @@ public class Facade {
         displayFlights(this.preferenceFlights);
     }
 
+    public void displaySearchedHotels(){
+        displayHotels(this.preferenceHotels);
+    }
+
     public boolean chooseSeat(String seatCode){
-        boolean rv = true;
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
-        return rv;
+        // may need some type of "fillSeat" method in Flight
+        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
+        for (ArrayList<Seat> a : seats) {
+            for (Seat s : a) {
+                if (s.getSeatCode().equals(seatCode)) {
+                    if (s.isSeatTaken()) {
+                        return false;
+                    }
+                    s.setPassenger(userAccount.getPassengerSelf());
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void displaySeats(){
+        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
+        System.out.println("Available Seats:\n");
+        for (ArrayList<Seat> a : seats) {
+            for (Seat s : a) {
+                if (!s.isSeatTaken()) {
+                    System.out.println(s.getSeatCode() + ", ");
+                }
+            } // ending of inner for loop
+        } // ending of for loop
 
     }
 
@@ -123,6 +163,14 @@ public class Facade {
 
             if(startingCode.equalsIgnoreCase(tempFlight.getDepartureLocation()) && endingCode.equalsIgnoreCase(tempFlight.getDestinationLocation())){
                 preferenceFlights.add(tempFlight);
+            }
+        }
+    }
+
+    public void searchHotels(String location){
+        for(Hotel tempHotel : this.availableHotels){
+            if(location.equalsIgnoreCase(tempHotel.getLocation())){
+                preferenceHotels.add(tempHotel);
             }
         }
     }

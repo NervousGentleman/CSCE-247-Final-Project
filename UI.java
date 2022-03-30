@@ -119,7 +119,7 @@ public class UI {
                 findFlightPrompt();
                 break;
             case 3: 
-                
+                findHotelPrompt();
                 break;
             case 4: 
                 cancelFlightPrompt();
@@ -203,8 +203,25 @@ public class UI {
             validFlight = facade.chooseFlight(flightChoiceInt);
         } // ending bracket of while loop
 
-        // display seats and choose for self and guests
 
+
+        // display seats and choose for self and guests
+    }
+
+    public void findHotelPrompt(){
+        String hotelLocation = "";
+        int hotelChoiceInt = -1;
+        System.out.println("******************* Find Hotel *******************");
+        System.out.print("\nEnter the city you wish to stay in: ");
+        hotelLocation = kb.nextLine();
+        facade.searchHotels(hotelLocation);
+        // sort options here
+        facade.displaySearchedHotels();
+        System.out.print("Enter the number of the hotel you wish to book: ");
+        hotelChoiceInt = checkValidInputInt();
+        facade.chooseHotel(hotelChoiceInt);
+
+        
 
     }
 
@@ -229,7 +246,7 @@ public class UI {
     public boolean guestPrompt(){
         boolean hasGuests = false;
         String guestResponse = "";
-        System.out.println("Do you have guest you want to book for?");
+        System.out.println("Do you have guest you want to book for? (Y/N)");
         guestResponse = kb.nextLine();
         if(guestResponse.contains("y") || guestResponse.contains("Y")){
             hasGuests = true;
@@ -256,5 +273,19 @@ public class UI {
             tempPassportNumber = checkValidInputInt();
             facade.addGuest(tempGuestName, facade.dateConverter(tempDateOfBirth), tempPassportNumber);
         }
+    }
+
+    public void chooseSeatPrompt(int guestAmount){
+        facade.displaySeats();
+        String userSeat = "";
+        String guestSeat = "";
+        System.out.print("Enter the seat code you wish to book: ");
+        userSeat = kb.nextLine();
+        for(int i = 0; i < guestAmount; i++){
+            System.out.print("Enter the seat code for Guest #" + i+1 + ": ");
+            guestSeat = kb.nextLine();
+            // need to add passenger to seat
+        }
+
     }
 } // ending bracket of class UI
