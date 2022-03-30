@@ -1,5 +1,6 @@
 public enum HotelName {
 
+    DEFAULT_NAME(""),
     WORST_EASTERN("Worst Eastern"),
     NIGHTS_INN("Nights Inn"),
     LOUSY_7("Lousy 7"),

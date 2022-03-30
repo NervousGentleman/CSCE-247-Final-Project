@@ -14,7 +14,16 @@ public class Hotel {
     private ArrayList<ArrayList<Room>> rooms;
 
     public Hotel(){
-
+        this.uuid = UUID.randomUUID();
+        this.setName(HotelName.DEFAULT_NAME);
+        this.setRating(0);
+        this.setPetFriendly(false);
+        this.setHasBreakfast(false);
+        this.setHasPool(false);
+        this.setLocation("");
+        this.setNumFloors(0);
+        this.setNumRoomsPerFloor(0);
+        this.setRooms(new ArrayList<ArrayList<Room>>());
     } // ending bracket of default constructor for Hotel
 
     public Hotel(UUID uuid, HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
