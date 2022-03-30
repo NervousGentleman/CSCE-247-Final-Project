@@ -147,6 +147,7 @@ public class Facade {
 
     public void displaySeats(){
         ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
+        ArrayList<ArrayList<Seat>> freeSeats = new ArrayList<ArrayList<Seat>>();
         System.out.println("Available Seats:\n");
         for (ArrayList<Seat> a : seats) {
             for (Seat s : a) {
@@ -158,6 +159,24 @@ public class Facade {
 
     }
 
+    public void displayRooms(Date start, Date end){
+        ArrayList<ArrayList<Room>> rooms = chosenHotel.getRooms();
+        System.out.println("Available Rooms:\n");
+        for(ArrayList<Room> a : rooms ){
+            for(Room r : a) {
+                if(r.getDatesOccupied()){
+
+                }
+            }
+        }
+    }
+
+    public boolean roomTakenDuringTime(Date start, Date end){
+        boolean rv = true;
+        
+        return rv;
+    }
+
     public void searchFlights(String startingCode, String endingCode){
         for(Flight tempFlight : this.availableFlights){
 
@@ -167,7 +186,7 @@ public class Facade {
         }
     }
 
-    public void searchHotels(String location){
+    public void searchHotels(String location) {
         for(Hotel tempHotel : this.availableHotels){
             if(location.equalsIgnoreCase(tempHotel.getLocation())){
                 preferenceHotels.add(tempHotel);

@@ -60,7 +60,7 @@ public class UI {
 
     public void mainPrompt(){
         System.out.println("******************* Main Menu *******************");
-        System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. View Itinerary\n7. End Program\n");
+        System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Print Itinerary\n7. End Program\n");
     }
 
     public int checkValidInputInt() {
@@ -220,8 +220,26 @@ public class UI {
         System.out.print("Enter the number of the hotel you wish to book: ");
         hotelChoiceInt = checkValidInputInt();
         facade.chooseHotel(hotelChoiceInt);
-
         
+
+    }
+
+    public void hotelDatePrompt(){
+        String checkInDate = "";
+        String checkOutDate = "";
+        String checkInTime = "";
+        String checkOutTime = "";
+        System.out.print("What date will you check in? (dd/MM/yyyy): ");
+        checkInDate = kb.nextLine();
+        System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
+        checkInTime = kb.nextLine();
+        System.out.print("What date will you check out? (dd/MM/yyyy): ");
+        checkOutDate = kb.nextLine();
+        System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
+        checkInDate = kb.nextLine();
+
+        System.out.println("Rooms open during your times: ");
+        facade.displayRooms(facade.dateConverter(checkInDate), facade.dateConverter(checkOutDate));
 
     }
 
