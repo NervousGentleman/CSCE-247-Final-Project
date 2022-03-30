@@ -18,9 +18,28 @@ public class Account {
     private ArrayList<Passenger> guests;
     private Passenger passengerSelf;
 
+<<<<<<< HEAD
     public Account(){
 
     } // ending bracket of default constructor
+=======
+    public Account() {
+        uuid = UUID.randomUUID();
+        email = "";
+        password = "";
+        name = "";
+        dateOfBirth = null;
+        passportNumber = 0;
+        flightHistory = new ArrayList<Flight>();
+        hotelHistory = new ArrayList<Hotel>();
+        bookedFlights = new ArrayList<Flight>();
+        bookedHotels = new ArrayList<Hotel>();
+        frequentFlyer = false;
+        smoker = false;
+        guests = new ArrayList<Passenger>();
+        passengerSelf = null;
+    }
+>>>>>>> main
 
     public Account(UUID uuid, String email, String password, String name, Date dateOfBirth, int passportNumber,
                     ArrayList<Flight> flightHistory, ArrayList<Hotel> hotelHistory, ArrayList<Flight> bookedFlights,

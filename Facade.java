@@ -11,6 +11,7 @@ public class Facade {
 
     
     public Facade() {
+<<<<<<< HEAD
         this.availableFlights = new ArrayList<Flight>();
         this.preferenceFlights = new ArrayList<Flight>();
         this.availableHotels = new ArrayList<Hotel>();
@@ -19,54 +20,72 @@ public class Facade {
         this.chosenHotel = new Hotel(); // need to add default values in default constructor.
         this.userAccount = new Account();
     //  this.userAccount = new Account(); need default constructor
+=======
+        this.availableFlights = FlightParser.getInstance().load();
+        this.loadedAccounts = UserParser.getInstance().load();
+>>>>>>> main
 
     }
 
     public boolean createAccount(String email, String password){
-        boolean rv = false; // this will be set true if creation of the account is successful.
-                            // Meaning account obj was created and successfully written to json.
-                            // findAccount will return false if email isn't found.
-        return rv;
+        if (findAccount(email) == null) {
+            userAccount = new Account();
+            userAccount.setEmail(email);
+            userAccount.setPassword(password);
+            loadedAccounts.add(userAccount);
+            return true;
+        }
+        return false;
     } 
 
     public boolean loginValidation(String email, String password){
-        boolean rv = false; // set to true if email and password combo match.
-        // use find account method to get corresponding account. 
-        // use if statement to set return value (rv) to true if the Strings match.
-        return rv;
+        Account a = findAccount(email);
+        if (a == null) {
+            return false;
+        } else if (!a.getPassword().equals(password)) {
+            return false;
+        }
+        userAccount = a;
+        return true;
     }
     
-    private boolean findAccount(String email){
-        boolean rv = false;
+    private Account findAccount(String email){
+        for (Account a : loadedAccounts) {
+            if(a.getEmail().equals(email)) {
+                return a;
+            }
+        }
+        return null;
         // loop through accounts in list, and if you find an email that matches,
         // set "userAccount" to that account object, and change rv to true.
-        return rv;
     }
 
     public boolean chooseFlight(int flightChoice){ 
-        boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
         // user will enter number of chosen flight, and we add the corresponding flight from the list
         if(flightIndex >= 0 && flightIndex < this.availableFlights.size()){
             this.chosenFlight = this.availableFlights.get(flightIndex);
-            rv = true;
+            return true;
         }
-        return rv;
+        return false;
     } // ending bracket of method chooseFlight
 
     public void displayFlights(ArrayList<Flight> flightList){
         // display flightList by looping through and calling toString method of each flight
         // print i+1 + ". " before flight info
+        for(int i = 0; i < flightList.size(); i++)
+        {
+            System.out.println(flightList.get(i).toString());
+        }
     }
     
     public void displayHotels(ArrayList<Hotel> hotelList){
         // display hotelList by looping through and calling toString method of each hotel
         // print i+1 + ". " before hotel info
-    }
-
-    public void displaySeats(Flight flight){
-        // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
-        
+        for(int i = 0; i < hotelList.size(); i++)
+        {
+            System.out.println(hotelList.get(i).toString());
+        }
     }
 
     public void displayBookedFlights(){
@@ -90,10 +109,26 @@ public class Facade {
     }
 
     public boolean chooseSeat(String seatCode){
-        boolean rv = true;
         // if seatCode equals an untaken seat, put user into Seat on chosenFlight
+<<<<<<< HEAD
         return rv;
 
+=======
+        // may need some type of "fillSeat" method in Flight
+        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
+        for (ArrayList<Seat> a : seats) {
+            for (Seat s : a) {
+                if (s.getSeatCode().equals(seatCode)) {
+                    if (s.isSeatTaken()) {
+                        return false;
+                    }
+                    s.setPassenger(userAccount.getPassengerSelf());
+                    return true;
+                }
+            }
+        }
+        return false;
+>>>>>>> main
     }
 
     public void searchFlights(String startingCode, String endingCode){

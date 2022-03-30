@@ -15,12 +15,13 @@ public class Flight {
     private double flightDuration;
     private int numRows;
     private int numSeatsPerRow;
-    private Seat[][] seats;
+    private ArrayList<ArrayList<Seat>> seats;
 
     public Flight(UUID flightID, Airline airline, String departureLocation, String destinationLocation,
                     boolean isConnecting, Flight previousFlight, Flight nextFlight, Date departureTime,
-                    Date arrivalTime, double flightDuration, int numRows, int numSeatsPerRow, Seat[][] seats) {
+                    Date arrivalTime, double flightDuration, int numRows, int numSeatsPerRow, ArrayList<ArrayList<Seat>> seats) {
                         this.flightID = flightID;
+                        this.airline = airline;
                         this.departureLocation = departureLocation;
                         this.destinationLocation = destinationLocation;
                         this.isConnecting = isConnecting;
@@ -116,6 +117,9 @@ public class Flight {
 
     public double getFlightDuration()
     {
+        if (isConnecting && previousFlight != null) {
+            return flightDuration + previousFlight.getFlightDuration();
+        }
         return flightDuration;
     }
 
@@ -140,11 +144,11 @@ public class Flight {
         this.numSeatsPerRow = numSeatsPerRow;
     }
 
-    public Seat[][] getSeats() {
+    public ArrayList<ArrayList<Seat>> getSeats() {
         return seats;
     }
 
-    public void setSeats(Seat[][] seats) {
+    public void setSeats(ArrayList<ArrayList<Seat>> seats) {
         this.seats = seats;
     }
 

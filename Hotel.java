@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Hotel {
@@ -10,14 +11,14 @@ public class Hotel {
     private String location;
     private int numFloors;
     private int numRoomsPerFloor;
-    private Room[][] rooms;
+    private ArrayList<ArrayList<Room>> rooms;
 
     public Hotel(){
 
     } // ending bracket of default constructor for Hotel
 
     public Hotel(UUID uuid, HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
-                String location, int numFloors, int numRoomsPerFloor, Room[][] rooms) {
+                String location, int numFloors, int numRoomsPerFloor, ArrayList<ArrayList<Room>> rooms) {
                     this.uuid = uuid;
                     this.name = name;
                     this.rating = rating;
@@ -112,11 +113,11 @@ public class Hotel {
         this.numRoomsPerFloor = numRoomsPerFloor;
     }
 
-    public Room[][] getRooms() {
+    public ArrayList<ArrayList<Room>> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Room[][] rooms) {
+    public void setRooms(ArrayList<ArrayList<Room>> rooms) {
         this.rooms = rooms;
     }
 }
