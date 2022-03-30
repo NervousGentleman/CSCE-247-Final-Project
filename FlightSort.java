@@ -11,6 +11,9 @@ public class FlightSort {
         this.seats = seats;
     }
     
+    /**
+     * Helper method to sort the flight by name
+     */
     public Comparator<Flight> sortName = new Comparator<Flight>() {
         public int compare(Flight f1, Flight f2){
             String flight1 = f1.getAirline().toString().toUpperCase();
@@ -19,6 +22,9 @@ public class FlightSort {
         }
     }; 
 
+    /**
+     * Helper method to sort the seats on the flight by price
+     */
     public Comparator<Seat> sortPrice = new Comparator<Seat>() {
         public int compare(Seat s1, Seat s2){
             int seat1 = (int)s1.getCost();
@@ -26,13 +32,22 @@ public class FlightSort {
             return seat1 - seat2;
         }
     };
-
-    public ArrayList<Flight> sortNames(ArrayList<Flight> flights){
+    /**
+     * Sorts the flights by the airline name
+     * @param flights
+     * @return ArrayList
+     */
+    public ArrayList<Flight> sortNames(){
         Collections.sort(flights, sortName);
         return flights;
     }
 
-    public ArrayList<Seat> sortPrices(ArrayList<Seat> seats){
+    /**
+     * Sorts the flights by the seat price
+     * @param seats
+     * @return ArrayList
+     */
+    public ArrayList<Seat> sortPrices(){
         Collections.sort(seats, sortPrice);
         return seats;
     }
