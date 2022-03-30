@@ -42,6 +42,7 @@ public class Account {
                         this.uuid = uuid;
                         this.email = email;
                         this.password = password;
+                        this.name = name;
                         this.dateOfBirth = dateOfBirth;
                         this.passportNumber = passportNumber;
                         this.flightHistory = flightHistory;
