@@ -25,10 +25,18 @@ public enum FlightJSONConstants {
     
     private final String name;
 
+    /**
+     * Contant for the json name
+     * @param name
+     */
     private FlightJSONConstants(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the JSON file
+     * @return
+     */
     public String getName() {
         return name;
     }

@@ -40,6 +40,10 @@ public class Hotel {
                     this.rooms = rooms;
     }
 
+    /**
+     * Getters and Setters
+     * @return
+     */
     public UUID getUUID() {
         return uuid;
     }
@@ -130,6 +134,9 @@ public class Hotel {
         this.rooms = rooms;
     }
 
+    /**
+     * Converts the hotel informtation to a String
+     */
     public String toString(){
         return "Hotel Name: " + this.getName() + " Location: " + this.getLocation() +" Rating: " + this.getRating() + " Pet Friendly: " + this.isPetFriendly() + " Breakfast: "
         + this.getHasBreakfast() + " Pool: " + this.getHasPool();

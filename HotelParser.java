@@ -13,10 +13,17 @@ public class HotelParser implements Parser<Hotel> {
     private static HotelParser hotelParser;
     private ArrayList<Hotel> hotels;
 
+    /**
+     * Constructor for the HotelParser
+     */
     public HotelParser() {
         this.hotels = new ArrayList<Hotel>();
     } // ending bracket of constructor
 
+    /**
+     * Gets an instance of the HotelParser
+     * @return
+     */
     public static HotelParser getInstance() {
         if (hotelParser == null) {
             hotelParser = new HotelParser();
@@ -24,6 +31,9 @@ public class HotelParser implements Parser<Hotel> {
         return hotelParser;
     } // ending bracket of method getInstance
 
+    /**
+     * Loads the ArrayList of Hotels
+     */
     public ArrayList<Hotel> load() {		
 		try {
 			FileReader reader = new FileReader(HotelJSONConstants.HOTEL_FILE_NAME.getName());
@@ -115,6 +125,9 @@ public class HotelParser implements Parser<Hotel> {
         return null;
     } // ending bracket of method load
 
+    /**
+     * Saves the hotel to the json file
+     */
     public void save() {
         ArrayList<Hotel> hotels = this.hotels;
         JSONArray jsonHotels = new JSONArray();
@@ -133,14 +146,25 @@ public class HotelParser implements Parser<Hotel> {
 
     } // ending bracket of method save
 
+    /**
+     * Adds a hotel to the JSON file
+     */
     public void add(Hotel hotel) {
         this.hotels.add(hotel);
     } // ending bracket of method add
 
+    /**
+     * Deletes a hotel from the JSON file
+     */
     public void delete(Hotel hotel) {
         this.hotels.remove(hotel);
     } // ending bracket of method delete
     
+    /**
+     * Gets the Hotel JSON file
+     * @param hotel
+     * @return
+     */
     public static JSONObject getHotelJson(Hotel hotel){
 
         JSONObject hotelDetails = new JSONObject();

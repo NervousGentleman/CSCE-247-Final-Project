@@ -11,6 +11,17 @@ public class Room {
     private int numberBeds;
     private BedType bedType;
 
+    /**
+     * Constructor for Room
+     * @param occupants
+     * @param datesOccupied
+     * @param price
+     * @param roomNumber
+     * @param roomType
+     * @param smokerFriendly
+     * @param numberBeds
+     * @param bedType
+     */
     public Room(ArrayList<Passenger> occupants, ArrayList<Date[]> datesOccupied, double price,
                 int roomNumber, RoomType roomType, boolean smokerFriendly, int numberBeds, BedType bedType) {
                     this.occupants = occupants;
@@ -23,6 +34,10 @@ public class Room {
                     this.bedType = bedType;
                 }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public ArrayList<Passenger> getOccupants() {
         return occupants;
     }
@@ -93,6 +108,9 @@ public class Room {
         this.bedType = bedType;
     }
 
+    /**
+     * Converts the room information into a string
+     */
     public String toString() {
         String ret = roomType.getName() + " room " + roomNumber + " with " + numberBeds + " " + bedType.getName() + " beds costing " + price + ".";
         if (smokerFriendly) {

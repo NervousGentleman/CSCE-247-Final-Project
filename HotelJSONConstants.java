@@ -25,6 +25,10 @@ public enum HotelJSONConstants {
    
    private final String name;
 
+   /**
+    * Constant for the JSON names
+    * @param name
+    */
    private HotelJSONConstants(String name) {
       this.name = name;
    }

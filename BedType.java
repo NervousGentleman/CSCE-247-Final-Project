@@ -6,10 +6,18 @@ public enum BedType {
 
     private final String name;
 
+    /**
+     * Constructor for the bed type
+     * @param String
+     */
     private BedType(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the bedtype
+     * @return
+     */
     public String getName() {
         return name;
     }

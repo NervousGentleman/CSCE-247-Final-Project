@@ -11,6 +11,10 @@ public class Passenger {
         this.passportNumber = passportNumber;
     }
     
+    /**
+     * Getters and setters
+     * @return
+     */
     public String getName()
     {
         return name;

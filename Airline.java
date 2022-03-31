@@ -16,19 +16,33 @@ public enum Airline {
         this.carryOnLimit = carryOnLimit;
         this.checkedBagLimit = checkedBagLimit;
     }
-
+    /**
+     * Gets the airline name
+     * @return
+     */
     public String getName() {
         return name;
     }
-
+     /**
+      * Gets the flight rating
+      * @return
+      */
     public int getRating() {
         return rating;
     }
 
+    /**
+     * Gets the carryon limit
+     * @return
+     */
     public int getCarryOnLimit() {
         return carryOnLimit;
     }
 
+    /**
+     * Gets the checked bag limit
+     * @return
+     */
     public int getCheckedBagLimit() {
         return checkedBagLimit;
     }

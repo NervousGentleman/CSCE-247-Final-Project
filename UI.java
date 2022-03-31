@@ -16,6 +16,9 @@ public class UI {
 
     }
 
+    /**
+     * Runs the program
+     */
     public void run() {
         do{ 
             System.out.println("Welcome to our Flight and Hotel booking Program!\n");
@@ -34,6 +37,10 @@ public class UI {
         ui.run();
     }
 
+    /**
+     * Asks for the users login information
+     * @return boolean
+     */
     public boolean loginPrompt(){
         boolean loginSuccessful = false;
         String tempUserInput = "";
@@ -63,6 +70,10 @@ public class UI {
         System.out.println("1. View Account Info\n2. Find/Book Flight\n3. Find/Book Hotel\n4. Cancel Flight\n5. Cancel Hotel\n6. Print Itinerary\n7. End Program\n");
     }
 
+    /**
+     * Checks to see if the user input is valid
+     * @return
+     */
     public int checkValidInputInt() {
 
         while(!kb.hasNextInt()) {
@@ -74,6 +85,10 @@ public class UI {
         return rv;
     } // ending bracket of method checkValidInputInt
 
+    /**
+     * Creates an account page for the user
+     * @return
+     */
     public boolean createAccountPrompt(){
         boolean createSuccessful = false;
         
@@ -104,6 +119,10 @@ public class UI {
         return createSuccessful;
     } // ending bracket of createAccountPrompt
     
+    /**
+     * Main menu options for the user
+     * @param choice
+     */
     public void mainOptionDecider(int choice){
 
         switch(choice){
@@ -142,12 +161,19 @@ public class UI {
 
     } // ending bracket of method mainOptionDecider
 
+    /**
+     * Views the account prompt
+     */
     public void viewAccountPrompt(){
         System.out.println("******************* Account *******************");
         System.out.println("1. View Booked Flights\n2. View Flight History\n3. View Booked Rooms\n4. View Hotel History\n5. Main Menu");
         
     }
 
+    /**
+     * Gives options for the user
+     * @param choice
+     */
     public void viewAccountDecider(int choice){
         
         switch(choice){
@@ -177,6 +203,9 @@ public class UI {
 
     }// ending bracket of method viewAccountDecider
     
+    /**
+     * Finds the flight prompt
+     */
     public void findFlightPrompt(){
         String startingCode = "";
         String destinationCode = "";
@@ -209,6 +238,9 @@ public class UI {
         // display seats and choose for self and guests
     }
 
+    /**
+     * Finds the prompt for hotel
+     */
     public void findHotelPrompt(){
         String hotelLocation = "";
         int hotelChoiceInt = -1;
@@ -225,6 +257,9 @@ public class UI {
 
     }
 
+    /**
+     * Gives the user an option of when they will be staying
+     */
     public void hotelDatePrompt(){
         String checkInDate = "";
         String checkOutDate = "";
@@ -249,6 +284,9 @@ public class UI {
 
     }
 
+    /**
+     * Allows the user to cancel their flight
+     */
     public void cancelFlightPrompt(){
         System.out.println("******************* Cancel Flight *******************");
         facade.displayBookedFlights();
@@ -258,6 +296,9 @@ public class UI {
         }
     }
 
+    /**
+     * Allows the user to cancel their hotel
+     */
     public void cancelHotelPrompt(){
         System.out.println("******************* Cancel Hotel *******************");
         facade.displayBookedHotels();
@@ -267,6 +308,10 @@ public class UI {
         }
     }
 
+    /**
+     * Allows the user to add a guest
+     * @return
+     */
     public boolean guestPrompt(){
         boolean hasGuests = false;
         String guestResponse = "";
@@ -283,6 +328,10 @@ public class UI {
         return hasGuests;
     }
 
+    /**
+     * Allows the user to enter their guests information
+     * @param amountOfGuests
+     */
     public void guestCreator(int amountOfGuests){
         String tempGuestName = "";
         String tempDateOfBirth = "";
@@ -299,6 +348,10 @@ public class UI {
         }
     }
 
+    /**
+     * Allows the user to choose their seat
+     * @param guestAmount
+     */
     public void chooseSeatPrompt(int guestAmount){
         facade.displaySeats();
         String userSeat = "";
@@ -315,18 +368,28 @@ public class UI {
 
     }
 
+    /**
+     * Allows the user to sort the flights
+     */
     public void sortFlightsPrompt(){
         System.out.print("Enter the way you would like to sort: ");
         System.out.println("1. Name\n2.Price");
         sortFlightsDecider(checkValidInputInt());
     }
     
+    /**
+     * Allows the user to sort hotels
+     */
     public void sortHotelsPrompt(){
         System.out.print("Enter the way you would like to sort: ");
         System.out.println("1. Name\n2.Price");
         sortHotelsDecider(checkValidInputInt());
     }
 
+    /**
+     * Allows the user to choose the flight they want
+     * @param choice
+     */
     public void sortFlightsDecider(int choice){
         switch(choice){
             case 1:
@@ -338,6 +401,10 @@ public class UI {
         }
     }
     
+    /**
+     * Allows the user to choose the hotel they want
+     * @param choice
+     */
     public void sortHotelsDecider(int choice){
         switch(choice){
             case 1:
