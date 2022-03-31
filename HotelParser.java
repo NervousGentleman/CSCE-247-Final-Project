@@ -24,10 +24,7 @@ public class HotelParser implements Parser<Hotel> {
         return hotelParser;
     } // ending bracket of method getInstance
 
-    public ArrayList<Hotel> load() {
-       
-        ArrayList<Hotel> hotels = new ArrayList<Hotel>();
-		
+    public ArrayList<Hotel> load() {		
 		try {
 			FileReader reader = new FileReader(HotelJSONConstants.HOTEL_FILE_NAME.getName());
 			JSONArray hotelsJSON = (JSONArray)new JSONParser().parse(reader);
