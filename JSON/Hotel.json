@@ -1,41 +1,111 @@
 [
     {
-        "uuid": "a6d7e4e2-d641-4613-ac3a-e2386fbc887d",
-        "name": "Worst Eastern",
-        "rating": 3,
-        "petFriendly": true,
-        "hasBreakfast": true,
-        "hasPool": true,
-        "location": "Seattle, Washington",
-        "numFloors": 7,
-        "numRoomsPerFloor": 10,
-        "hotelAddress": "123 Something Street",
         "rooms": [
             [
                 {
+                    "datesOccupied": [],
+                    "roomNumber": 1,
+                    "price": 0.08,
+                    "smokerFriendly": false,
                     "roomType": "Regular",
-                    "price": 30.0,
-                    "smokerFriendly": true,
-                    "bedCount": 1,
-                    "bedType": "King",
-                    "roomNumber": 11,
-                    "occupants": [
-                        {
-                            "name": "...",
-                            "dateOfBirth": 1000000,
-                            "passportNumber": 123
-                        }
-                    ],
-                    "datesOccupied":[
-                        [
-                            100000,1000000
-                        ],
-                        [
-                            10000,10000000
-                        ]
-                    ]
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 2,
+                    "price": 86.4,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 3,
+                    "price": 71.66,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                }
+            ],
+            [
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 101,
+                    "price": 58.11,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 102,
+                    "price": 53.08,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 103,
+                    "price": 37.21,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                }
+            ],
+            [
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 201,
+                    "price": 6.46,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 202,
+                    "price": 79.73,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
+                },
+                {
+                    "datesOccupied": [],
+                    "roomNumber": 203,
+                    "price": 31.96,
+                    "smokerFriendly": false,
+                    "roomType": "Regular",
+                    "bedType": "Queen",
+                    "occupants": [],
+                    "bedCount": 2
                 }
             ]
-        ]
+        ],
+        "name": "Lousy 7",
+        "rating": 4,
+        "petFriendly": true,
+        "numRoomsPerFloor": 3,
+        "location": "Columbia, South Carolina",
+        "hasBreakfast": true,
+        "numFloors": 3,
+        "uuid": "af747a62-9e4c-4493-8cf4-d72ff0afa3d3",
+        "hasPool": true
     }
 ]
