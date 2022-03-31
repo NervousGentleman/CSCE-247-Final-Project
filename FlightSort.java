@@ -71,8 +71,8 @@ public class FlightSort {
      * Sorts the flights by the seat price
      * @return ArrayList
      */
-    public ArrayList<Seat> sortPrices(){
+    public ArrayList<Flight> sortPrices(){
         Collections.sort(flights, sortPrice);
-        return seats;
+        return flights;
     }
 }
