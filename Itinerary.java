@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,15 +19,17 @@ public class Itinerary {
      */
     public static void print() {
         try {
-            File itinerary = new File("itinerary.txt");
-            if (itinerary.createNewFile()) {
-                System.out.println("Flight: " + Itinerary.plannedFlights.get(0));
-                System.out.println("Seat: " + Itinerary.plannedSeats.get(0));
-                System.out.println("Hotel: " + Itinerary.plannedHotels.get(0));
-                System.out.println("Room: " + Itinerary.plannedRooms.get(0));
+            FileWriter file = new FileWriter("itinerary.txt");
+            for (Flight f : plannedFlights) {
+                file.write(f.toString());
+                file.write("\n");
             }
-        } catch (IOException e) {
-            System.out.println("An error occured");
+            for (Hotel h : plannedHotels) {
+                file.write(h.toString());
+            }
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

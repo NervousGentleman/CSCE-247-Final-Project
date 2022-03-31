@@ -99,6 +99,12 @@ public class Facade {
         // user will enter number of chosen flight, and we add the corresponding flight from the list
         if(flightIndex >= 0 && flightIndex < this.preferenceFlights.size()){
             this.chosenFlight = this.preferenceFlights.get(flightIndex);
+            userAccount.addBookedFlight(chosenFlight);
+            Flight temp = chosenFlight.getNextFlight();
+            while (temp != null) {
+                userAccount.addBookedFlight(temp);
+                temp = temp.getNextFlight();
+            }
             rv = true;
         }
         return rv;
@@ -114,6 +120,7 @@ public class Facade {
         int hotelIndex = hotelChoice - 1;
         if(hotelIndex >= 0 && hotelIndex < this.preferenceHotels.size()){
             this.chosenHotel = this.preferenceHotels.get(hotelIndex);
+            userAccount.getBookedHotels().add(chosenHotel);
             rv = true;
         }
         return rv;
@@ -124,8 +131,23 @@ public class Facade {
      * @param flightList
      */
     public void displayFlights(ArrayList<Flight> flightList){
+        int actual = 0;
         for(int i = 0; i < flightList.size(); i++) {
-            System.out.println(flightList.get(i).toString());
+            Flight f = flightList.get(i);
+            if (f.getIsConnecting() && f.getPreviousFlight() == null) {
+                actual++;
+                System.out.println(actual + ": ");
+                while (f.getNextFlight() != null) {
+                    System.out.println(f);
+                    f = f.getNextFlight();
+                }
+                System.out.println(f);
+            } else if (f.getIsConnecting() && f.getPreviousFlight() != null) {
+                continue;
+            } else {
+                actual++;
+                System.out.println(actual + ": " + f.toString());
+            }
         }
     }
     
@@ -135,7 +157,7 @@ public class Facade {
      */
     public void displayHotels(ArrayList<Hotel> hotelList){
         for(int i = 0; i < hotelList.size(); i++) {
-            System.out.println(hotelList.get(i).toString());
+            System.out.println((i+1) + ": " + hotelList.get(i).toString());
         }
         // display hotelList by looping through and calling toString method of each hotel
         // print i+1 + ". " before hotel info
@@ -147,7 +169,6 @@ public class Facade {
      */
     public void displaySeats(Flight flight){
         // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
-        
     }
 
     /**
@@ -207,23 +228,23 @@ public class Facade {
      * Allows the user to choose a room
      */
     public void chooseRoom(){
-
-
+        ArrayList<ArrayList<Room>> rooms = chosenHotel.getRooms();
     }
 
     /**
      * Displays the seats available on a flight
      */
-    public void displaySeats(){
+    public void displaySeats() {
         ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
         ArrayList<ArrayList<Seat>> freeSeats = new ArrayList<ArrayList<Seat>>();
         System.out.println("Available Seats:\n");
         for (ArrayList<Seat> a : seats) {
             for (Seat s : a) {
                 if (!s.isSeatTaken()) {
-                    System.out.println(s.getSeatCode() + ", ");
+                    System.out.print(s.getSeatCode() + ", ");
                 }
             } // ending of inner for loop
+            System.out.println();
         } // ending of for loop
 
     }
@@ -237,12 +258,16 @@ public class Facade {
         ArrayList<ArrayList<Room>> rooms = chosenHotel.getRooms();
         for(ArrayList<Room> a : rooms ){
             for(Room r : a) {
-                for(Date[] d : r.getDatesOccupied()){ 
+                if (r.getDatesOccupied().isEmpty()) {
+                    System.out.print(r.getRoomNumber() + " ");
+                }
+                for(Date[] d : r.getDatesOccupied()){
                     if(!roomTakenDuringTime(start, end, d)){
-                        System.out.println(r.getRoomNumber() + "\n");
+                        System.out.print(r.getRoomNumber() + " ");
                     } 
                 }// ending of innermost for loop
             } // ending of inner for loop
+            System.out.println();
         } // ending of outer for loop
     }
 
@@ -252,7 +277,9 @@ public class Facade {
         if((start.after(times[0]) && start.before(times[1])) || (end.after(times[0]) && end.before(times[1])) ){
             rv = true;
         }
-
+        // if the start is between date[0] and date[1] or the end is between date[0] and date[1]
+        // User wants to check in at 4/01 and leave at 4/07
+        // Room is booked 3/30-4/02
         return rv;
     }
 
@@ -262,10 +289,28 @@ public class Facade {
      * @param endingCode
      */
     public void searchFlights(String startingCode, String endingCode){
-        for(Flight tempFlight : this.availableFlights){
-
-            if(startingCode.equalsIgnoreCase(tempFlight.getDepartureLocation()) && endingCode.equalsIgnoreCase(tempFlight.getDestinationLocation())){
-                preferenceFlights.add(tempFlight);
+        for (int i = 0; i < availableFlights.size(); i++) {
+            if (preferenceFlights.contains(availableFlights.get(i))) {
+                continue;
+            }
+            Flight f = availableFlights.get(i);
+            if (f.getDepartureLocation().equals(startingCode)) {
+                if (!f.getIsConnecting() && f.getDestinationLocation().equals(endingCode)) {
+                    preferenceFlights.add(f);
+                } else if (f.getIsConnecting()) {
+                Flight temp = f.getNextFlight();
+                while (temp != null) {
+                    if (temp.getDestinationLocation().equals(endingCode)) {
+                        while (!temp.equals(f)) {
+                            preferenceFlights.add(f);
+                            f = f.getNextFlight();
+                        }
+                        preferenceFlights.add(f);
+                        break;
+                    }
+                    temp = temp.getNextFlight();
+                }
+            } 
             }
         }
     }
@@ -336,7 +381,7 @@ public class Facade {
      * @return
      */
     public Date dateAndTimeConverter(String date){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm");
         Date tempDate = new Date();
         try {
             tempDate = sdf.parse(date);
