@@ -146,8 +146,8 @@ public class Facade {
     }
 
     public void chooseSeatForGuest(ArrayList<String> seatCodes, ArrayList<Passenger> guests){
-        for(int i = 0; i < guests.size(); i++){
-            this.chosenFlight.getSeats()
+        for (int i = 0; i < guests.size(); i++){
+            this.chosenFlight.getSeats();
         }
     }
 
@@ -265,4 +265,35 @@ public class Facade {
         this.itinerary.print();
     }
 
+    public void blah() {
+        ArrayList<ArrayList<Seat>> seats = flight.getSeats();
+        for (int i = 0; i < seats.size(); i++) {
+            ArrayList<Seat> row = seats.get(i);
+            for (int j = 0; j < row.size(); j++) {
+                Seat seat = row.get(j);
+                if (seat.getSeatCode().equals("userSeatCodePassedIn") && !seat.isSeatTaken()) {
+                    seat.setPassenger(passenger);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean chooseSeatForGuest(String seatCode, Passenger guest) {
+        ArrayList<ArrayList<Seat>> seats = flight.getSeats();
+        for (int i = 0; i < seats.size(); i++) {
+            ArrayList<Seat> row = seats.get(i);
+            for (int j = 0; j < row.size(); j++) {
+                Seat seat = row.get(j);
+                if (seat.isSeatTaken()) {
+                    return false;
+                } else if (seat.getSeatCode().equals(seatCode) {
+                    seat.setPassenger(guest);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
