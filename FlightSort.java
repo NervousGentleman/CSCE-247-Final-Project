@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.MissingResourceException;
 
 public class FlightSort {
     private ArrayList<Flight> flights;
@@ -11,9 +12,8 @@ public class FlightSort {
      * @param flights
      * @param seats
      */
-    public FlightSort(ArrayList<Flight> flights, ArrayList<Seat> seats){
+    public FlightSort(ArrayList<Flight> flights){
         this.flights = flights;
-        this.seats = seats;
     }
     
     /**
@@ -32,11 +32,30 @@ public class FlightSort {
      * Helper method to sort the seats on the flight by price
      * https://www.geeksforgeeks.org/java-program-to-sort-an-arraylist/
      */
-    public Comparator<Seat> sortPrice = new Comparator<Seat>() {
-        public int compare(Seat s1, Seat s2){
-            int seat1 = (int)s1.getCost();
-            int seat2 = (int)s2.getCost();
-            return seat1 - seat2;
+    public Comparator<Flight> sortPrice = new Comparator<Flight>() {
+        public int compare(Flight f1, Flight f2) {
+            double minPriceF1 = Double.MAX_VALUE;
+            double minPriceF2 = Double.MAX_VALUE;
+            for (ArrayList<Seat> a : f1.getSeats()) {
+                for (Seat s : a) {
+                    if (s.getCost() < minPriceF1) {
+                        minPriceF1 = s.getCost();
+                    }
+                }
+            }
+            for (ArrayList<Seat> a : f2.getSeats()) {
+                for (Seat s : a) {
+                    if (s.getCost() < minPriceF2) {
+                        minPriceF2 = s.getCost();
+                    }
+                }
+            }
+            if (minPriceF1 < minPriceF2) {
+                return -1;
+            } else if (minPriceF1 > minPriceF2) {
+                return 1;
+            }
+            return 0;
         }
     };
     /**
@@ -53,7 +72,7 @@ public class FlightSort {
      * @return ArrayList
      */
     public ArrayList<Seat> sortPrices(){
-        Collections.sort(seats, sortPrice);
+        Collections.sort(flights, sortPrice);
         return seats;
     }
 }
