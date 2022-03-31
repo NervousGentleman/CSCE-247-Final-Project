@@ -145,6 +145,17 @@ public class Facade {
         return false;
     }
 
+    public void chooseSeatForGuest(ArrayList<String> seatCodes, ArrayList<Passenger> guests){
+        for(int i = 0; i < guests.size(); i++){
+            this.chosenFlight.getSeats()
+        }
+    }
+
+    public void chooseRoom(){
+
+
+    }
+
     public void displaySeats(){
         ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
         ArrayList<ArrayList<Seat>> freeSeats = new ArrayList<ArrayList<Seat>>();
@@ -161,19 +172,24 @@ public class Facade {
 
     public void displayRooms(Date start, Date end){
         ArrayList<ArrayList<Room>> rooms = chosenHotel.getRooms();
-        System.out.println("Available Rooms:\n");
         for(ArrayList<Room> a : rooms ){
             for(Room r : a) {
-                if(r.getDatesOccupied()){
-
-                }
-            }
-        }
+                for(Date[] d : r.getDatesOccupied()){ 
+                    if(!roomTakenDuringTime(start, end, d)){
+                        System.out.println(r.getRoomNumber() + "\n");
+                    } 
+                }// ending of innermost for loop
+            } // ending of inner for loop
+        } // ending of outer for loop
     }
 
-    public boolean roomTakenDuringTime(Date start, Date end){
-        boolean rv = true;
+    public boolean roomTakenDuringTime(Date start, Date end, Date[] times){
+        boolean rv = false;
         
+        if((start.after(times[0]) && start.before(times[1])) || (end.after(times[0]) && end.before(times[1])) ){
+            rv = true;
+        }
+
         return rv;
     }
 
@@ -216,7 +232,7 @@ public class Facade {
     }
 
     public Date dateConverter(String date){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Date tempBirthDate = new Date();
         try {
             tempBirthDate = sdf.parse(date);
@@ -226,14 +242,27 @@ public class Facade {
 
         return tempBirthDate;
     }
+    
+    public Date dateAndTimeConverter(String date){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+        Date tempDate = new Date();
+        try {
+            tempDate = sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } // ending of try catch block
+
+        return tempDate;
+    }
 
     public void addGuest(String name, Date dateOfBirth, int passportNumber){
         Passenger tempPassenger = new Passenger(name, dateOfBirth, passportNumber);
         this.guests.add(tempPassenger);
     }
 
-    public void viewItinerary(){
+    public void printItinerary(){
         this.itinerary = new Itinerary(this.userAccount);
         this.itinerary.print();
     }
+
 }

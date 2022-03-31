@@ -89,7 +89,7 @@ public class UI {
         tempPassword = kb.nextLine();
         System.out.print("Please enter your full name: ");
         name = kb.nextLine();
-        System.out.print("Please enter your date of birth (dd/MM/yyyy): ");
+        System.out.print("Please enter your date of birth (MM/dd/yyyy): ");
         dateOfBirth = kb.nextLine();
         System.out.print("Please enter your passport number: ");
         passportNumber = checkValidInputInt();
@@ -128,7 +128,7 @@ public class UI {
                 cancelHotelPrompt();
                 break;
             case 6: 
-                facade.viewItinerary();
+                facade.printItinerary();
                 break;
             case 7: 
                 quit = true;
@@ -180,6 +180,7 @@ public class UI {
     public void findFlightPrompt(){
         String startingCode = "";
         String destinationCode = "";
+        String seatCode = "";
         int flightChoiceInt = -1;
         int guestAmount = 0;
         boolean validFlight = false;
@@ -202,8 +203,8 @@ public class UI {
             flightChoiceInt = checkValidInputInt();
             validFlight = facade.chooseFlight(flightChoiceInt);
         } // ending bracket of while loop
-
-
+        System.out.print("Enter the seat code you wish to book: ");
+        seatCode = kb.nextLine();
 
         // display seats and choose for self and guests
     }
@@ -227,19 +228,24 @@ public class UI {
     public void hotelDatePrompt(){
         String checkInDate = "";
         String checkOutDate = "";
+        int tempRoomNumber = -1;
         String checkInTime = "";
         String checkOutTime = "";
-        System.out.print("What date will you check in? (dd/MM/yyyy): ");
+        String formattedCheckIn = checkInDate + " " + checkInTime + ":00";
+        String formattedCheckOut = checkOutDate + " " + checkOutTime + ":00";
+        System.out.print("What date will you check in? (MM/dd/yyyy): ");
         checkInDate = kb.nextLine();
         System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
         checkInTime = kb.nextLine();
-        System.out.print("What date will you check out? (dd/MM/yyyy): ");
+        System.out.print("What date will you check out? (MM/dd/yyyy): ");
         checkOutDate = kb.nextLine();
         System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
-        checkInDate = kb.nextLine();
-
+        checkOutTime = kb.nextLine();
         System.out.println("Rooms open during your times: ");
-        facade.displayRooms(facade.dateConverter(checkInDate), facade.dateConverter(checkOutDate));
+        facade.displayRooms(facade.dateAndTimeConverter(formattedCheckIn), facade.dateAndTimeConverter(formattedCheckOut));
+        System.out.print("\nEnter the room number you wish to stay in: ");
+        tempRoomNumber = checkValidInputInt();
+
 
     }
 
@@ -285,7 +291,7 @@ public class UI {
         for(int i = 0; i < amountOfGuests; i++){
             System.out.println("Enter the full name of guest #" + i+1 + ": ");
             tempGuestName = kb.nextLine();
-            System.out.print("Enter their date of birth (dd/MM/yyyy): "); // maybe add valid bday format check
+            System.out.print("Enter their date of birth (MM/dd/yyyy): "); // maybe add valid bday format check
             tempDateOfBirth = kb.nextLine();
             System.out.print("Enter their passport number: ");
             tempPassportNumber = checkValidInputInt();
