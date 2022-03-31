@@ -49,6 +49,10 @@ public class Flight {
                         this.numRows = numRows;
                         this.numSeatsPerRow = numSeatsPerRow;
                         this.seats = seats;
+
+                        if (this.isConnecting && this.previousFlight != null) {
+                            this.flightDuration += this.previousFlight.getFlightDuration();
+                        }
                     }
 
     /**
@@ -137,9 +141,6 @@ public class Flight {
 
     public double getFlightDuration()
     {
-        if (isConnecting && previousFlight != null) {
-            return flightDuration + previousFlight.getFlightDuration();
-        }
         return flightDuration;
     }
 

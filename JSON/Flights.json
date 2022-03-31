@@ -596,7 +596,7 @@
             ]
         ],
         "arrivalTime": 1648836871,
-        "flightDuration": 6.0,
+        "flightDuration": 3.0,
         "numSeatsPerRow": 3,
         "airline": "DisUnited Airlines",
         "previousFlight": null
@@ -878,7 +878,7 @@
             ]
         ],
         "arrivalTime": 1648844071,
-        "flightDuration": 32.0,
+        "flightDuration": 8.0,
         "numSeatsPerRow": 3,
         "airline": "DisUnited Airlines",
         "previousFlight": "75a84421-2ea1-4e6b-b129-8fcac16a608b"
@@ -1100,7 +1100,7 @@
             ]
         ],
         "arrivalTime": 1648843231,
-        "flightDuration": 12.0,
+        "flightDuration": 10.0,
         "numSeatsPerRow": 3,
         "airline": "NorthEast",
         "previousFlight": "e2192b0a-35ce-4a0f-8bc7-ad6265161ec6"
