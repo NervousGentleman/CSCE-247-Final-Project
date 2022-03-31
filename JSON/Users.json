@@ -1,81 +1,74 @@
 [
     {
-        "uuid": "9ae6b428-0604-49d5-b302-00f115f1a229",
-        "email": "jimbob@gmail.com",
-        "password": "1234",
-        "name": "Jim Bob",
-        "dateOfBirth": 456546021,
         "passportNumber": 13579,
-        "flightHistory": [
-            {"1": "35ca62d1-249b-431c-9c49-bd4350a27f31"},
-            {"2": "6ac17edc-b751-444c-b856-d12261bc51d9"}
-        ],
-        "hotelHistory": [
-            {"1": "b4e1c078-2405-43ef-859c-12157bb0ac08"},
-            {"2": "b4e1c078-2405-43ef-859c-12157bb0ac08"}
-        ],
-        "bookedFlights": [
-            {"1": "8aa4bf8f-8122-4acc-874d-4339820a022c"},
-            {"2": "e84d13d1-0fd5-4d29-9462-bfde8459dac6"}
-        ],
-        "bookedHotels": [
-            {"1": "911f48b2-ec74-404d-9a89-dd0a7a403b2d"},
-            {"2": "4274578f-3b2a-47a9-8107-353ae14bbc3f"}
-        ],
+        "dateOfBirth": 456546021,
+        "flightHistory": [],
+        "bookedFlights": [],
+        "uuid": "9ae6b428-0604-49d5-b302-00f115f1a229",
+        "password": "1234",
         "frequentFlyer": false,
         "smoker": false,
+        "hotelHistory": [],
+        "bookedHotels": [],
+        "name": "Jim Bob",
         "guests": [
             {
+                "passportNumber": 2468,
                 "name": "Alice Bob",
-                "dateOfBirth": 1027822821,
-                "passportNumber": 2468
+                "dateOfBirth": 1027822821
             },
             {
+                "passportNumber": 123456789,
                 "name": "Sally Bob",
-                "dateOfBirth": 1027822821,
-                "passportNumber": 123456789
+                "dateOfBirth": 1027822821
             }
-        ]
+        ],
+        "email": "jimbob@gmail.com"
     },
     {
-        "uuid": "6ee003e0-472d-47ce-8244-455da1026dda",
-        "email": "nancyblack@hotmail.com",
-        "password": "n@ncysm!th",
-        "name": "Nancy Smith",
-        "dateOfBirth": 1055470821,
         "passportNumber": 125689,
-        "flightHistory": [
-            {"1": "45a98816-8452-4787-89d3-43143dcb59f0"}
-        ],
-        "hotelHistory": [
-            {"1": "5ce47764-f8ae-4a44-b4cc-9b7112fd557f"}
-        ],
-        "bookedFlights": [
-            {"1": "77c324e0-9864-4444-b885-54a35db5d35e"},
-            {"2": "9e4c6cbf-b2ed-47cb-a171-4c86a519d825"},
-            {"3": "73ea40ec-ad47-420a-aac2-550f10762e8c"}
-        ],
-        "bookedHotels": [
-            {"1": "d909574f-f6d6-4552-9ea1-537a340d2bfe"}
-        ],
+        "dateOfBirth": 1055470821,
+        "flightHistory": [],
+        "bookedFlights": [],
+        "uuid": "6ee003e0-472d-47ce-8244-455da1026dda",
+        "password": "n@ncysm!th",
         "frequentFlyer": false,
         "smoker": true,
+        "hotelHistory": [],
+        "bookedHotels": [],
+        "name": "Nancy Smith",
         "guests": [
             {
+                "passportNumber": 12345,
                 "name": "Dan Black",
-                "dateOfBirth": 421122021,
-                "passportNumber": 12345
+                "dateOfBirth": 421122021
             },
             {
+                "passportNumber": 6789,
                 "name": "Billy Black",
-                "dateOfBirth": -409264779,
-                "passportNumber": 6789
+                "dateOfBirth": -409264779
             },
             {
+                "passportNumber": 3478,
                 "name": "Danny Black",
-                "dateOfBirth": 776917221,
-                "passportNumber": 3478
+                "dateOfBirth": 776917221
             }
-        ]
+        ],
+        "email": "nancyblack@hotmail.com"
+    },
+    {
+        "passportNumber": 123456789,
+        "dateOfBirth": 764396071,
+        "flightHistory": [],
+        "bookedFlights": [],
+        "uuid": "199f4440-7517-4157-a97a-ad28338fb262",
+        "password": "subsYum",
+        "frequentFlyer": false,
+        "smoker": false,
+        "hotelHistory": [],
+        "bookedHotels": [],
+        "name": "Jimmy John",
+        "guests": [],
+        "email": "jimmyjohn@gmail.com"
     }
 ]
