@@ -14,6 +14,8 @@ public class Facade {
     private Account userAccount;
     private ArrayList<Passenger> guests;
     private Itinerary itinerary;
+    private FlightSort fs;
+    private HotelSort hs;
     
     public Facade() {
         this.availableFlights = FlightParser.getInstance().load();
@@ -127,29 +129,13 @@ public class Facade {
         displayHotels(this.preferenceHotels);
     }
 
-    public boolean chooseSeat(String seatCode){
-        // if seatCode equals an untaken seat, put user into Seat on chosenFlight
-        // may need some type of "fillSeat" method in Flight
-        ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
-        for (ArrayList<Seat> a : seats) {
-            for (Seat s : a) {
-                if (s.getSeatCode().equals(seatCode)) {
-                    if (s.isSeatTaken()) {
-                        return false;
-                    }
-                    s.setPassenger(userAccount.getPassengerSelf());
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     public void chooseSeatForGuest(ArrayList<String> seatCodes, ArrayList<Passenger> guests){
-        for (int i = 0; i < guests.size(); i++){
-            this.chosenFlight.getSeats();
+        for(int i = 0; i < guests.size(); i++){
+            
         }
     }
+
 
     public void chooseRoom(){
 
@@ -264,15 +250,16 @@ public class Facade {
         this.itinerary = new Itinerary(this.userAccount);
         this.itinerary.print();
     }
+    
+    public boolean chooseSeat(String seatCode) {
+        ArrayList<ArrayList<Seat>> seats = this.chosenFlight.getSeats();
 
-    public void blah() {
-        ArrayList<ArrayList<Seat>> seats = flight.getSeats();
         for (int i = 0; i < seats.size(); i++) {
             ArrayList<Seat> row = seats.get(i);
             for (int j = 0; j < row.size(); j++) {
                 Seat seat = row.get(j);
-                if (seat.getSeatCode().equals("userSeatCodePassedIn") && !seat.isSeatTaken()) {
-                    seat.setPassenger(passenger);
+                if (seat.getSeatCode().equals(seatCode) && !seat.isSeatTaken()) {
+                    seat.setPassenger(this.userAccount.getPassengerSelf());
                     return true;
                 }
             }
@@ -281,19 +268,44 @@ public class Facade {
     }
 
     public boolean chooseSeatForGuest(String seatCode, Passenger guest) {
-        ArrayList<ArrayList<Seat>> seats = flight.getSeats();
+        ArrayList<ArrayList<Seat>> seats = this.chosenFlight.getSeats();
+        
         for (int i = 0; i < seats.size(); i++) {
             ArrayList<Seat> row = seats.get(i);
             for (int j = 0; j < row.size(); j++) {
                 Seat seat = row.get(j);
                 if (seat.isSeatTaken()) {
                     return false;
-                } else if (seat.getSeatCode().equals(seatCode) {
+                } else if (seat.getSeatCode().equals(seatCode)) {
                     seat.setPassenger(guest);
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    public ArrayList<Flight> sortFlightByPrice(){
+        this.fs = new FlightSort(this.preferenceFlights);
+        this.preferenceFlights = fs.sortPrices();
+        return fs.sortPrices();
+    }
+
+    public ArrayList<Flight> sortFlightByName(){
+        this.fs = new FlightSort(this.preferenceFlights);
+        this.preferenceFlights = fs.sortNames();
+        return fs.sortNames();
+    }
+
+    public ArrayList<Hotel> sortHotelByPrice(){
+        this.hs = new HotelSort(this.preferenceHotels);
+        this.preferenceHotels = hs.sortPrices();
+        return hs.sortPrices();
+    }
+
+    public ArrayList<Hotel> sortHotelByName(){
+        this.hs = new HotelSort(this.preferenceHotels);
+        this.preferenceHotels = hs.sortNames();
+        return hs.sortNames();
     }
 }

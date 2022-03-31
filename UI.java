@@ -195,7 +195,7 @@ public class UI {
             guestCreator(guestAmount);
         } // ending bracket of if statement
         facade.searchFlights(startingCode, destinationCode);
-        // sort options here
+        sortFlightsPrompt();
         facade.displaySearchedFlights();
         
         while(!validFlight){
@@ -216,7 +216,7 @@ public class UI {
         System.out.print("\nEnter the city you wish to stay in: ");
         hotelLocation = kb.nextLine();
         facade.searchHotels(hotelLocation);
-        // sort options here
+        sortHotelsPrompt();
         facade.displaySearchedHotels();
         System.out.print("Enter the number of the hotel you wish to book: ");
         hotelChoiceInt = checkValidInputInt();
@@ -311,5 +311,39 @@ public class UI {
             // need to add passenger to seat
         }
 
+    }
+
+    public void sortFlightsPrompt(){
+        System.out.print("Enter the way you would like to sort: ");
+        System.out.println("1. Name\n2.Price");
+        sortFlightsDecider(checkValidInputInt());
+    }
+    
+    public void sortHotelsPrompt(){
+        System.out.print("Enter the way you would like to sort: ");
+        System.out.println("1. Name\n2.Price");
+        sortHotelsDecider(checkValidInputInt());
+    }
+
+    public void sortFlightsDecider(int choice){
+        switch(choice){
+            case 1:
+            facade.displayFlights(facade.sortFlightByName());
+            break;
+            case 2:
+            facade.displayFlights(facade.sortFlightByPrice());
+            break;
+        }
+    }
+    
+    public void sortHotelsDecider(int choice){
+        switch(choice){
+            case 1:
+            facade.displayHotels(facade.sortHotelByName());
+            break;
+            case 2:
+            facade.displayHotels(facade.sortHotelByPrice());
+            break;
+        }
     }
 } // ending bracket of class UI
