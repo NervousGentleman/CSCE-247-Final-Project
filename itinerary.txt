@@ -1,0 +1,3 @@
+Flight DisUnited Airlines departing from CAE at Fri Apr 01 13:30:31 EDT 2022 arriving at ATL at Fri Apr 01 14:14:31 EDT 2022. Flight duration 6.0 hours.
+Flight DisUnited Airlines departing from ATL at Fri Apr 01 08:14:31 EDT 2022 arriving at SEA at Fri Apr 01 16:14:31 EDT 2022. Flight duration 32.0 hours.
+Hotel Name: UNCOMFORTABLE_INN Location: Seattle Rating: 5 Pet Friendly: true Breakfast: true Pool: true

@@ -7,13 +7,14 @@ public class UI {
     private boolean quitAccount; // allows us to exit account sub menu
     private int userChoice;
     private Scanner kb;
+    private boolean loggedIn;
     public UI() {
         this.facade = new Facade();
         this.quit = false;
         this.quitAccount = false;
         this.userChoice = -1;
         this.kb = new Scanner(System.in);
-
+        loggedIn = false;
     }
 
     /**
@@ -22,7 +23,9 @@ public class UI {
     public void run() {
         do{ 
             System.out.println("Welcome to our Flight and Hotel booking Program!\n");
-            while(!loginPrompt()); // loops until loginPrompt returns true
+            while (!loggedIn) {
+                loggedIn = loginPrompt();
+            }
             mainPrompt();
             this.userChoice = checkValidInputInt();
             mainOptionDecider(userChoice);
@@ -221,16 +224,15 @@ public class UI {
         } // ending bracket of if statement
         facade.searchFlights(startingCode, destinationCode);
         sortFlightsPrompt();
-        facade.displaySearchedFlights();
         
         while(!validFlight){
             System.out.print("\nEnter the number of the flight you want to book: ");
             flightChoiceInt = checkValidInputInt();
             validFlight = facade.chooseFlight(flightChoiceInt);
         } // ending bracket of while loop
+        facade.displaySeats();
         System.out.print("Enter the seat code you wish to book: ");
-        seatCode = kb.nextLine();
-        facade.chooseSeat(seatCode);
+        chooseSeatPrompt(guestAmount);
         // display seats and choose for self and guests
     }
 
@@ -245,12 +247,10 @@ public class UI {
         hotelLocation = kb.nextLine();
         facade.searchHotels(hotelLocation);
         sortHotelsPrompt();
-        facade.displaySearchedHotels();
         System.out.print("Enter the number of the hotel you wish to book: ");
         hotelChoiceInt = checkValidInputInt();
         facade.chooseHotel(hotelChoiceInt);
-        
-
+        hotelDatePrompt();
     }
 
     /**
@@ -262,22 +262,22 @@ public class UI {
         int tempRoomNumber = -1;
         String checkInTime = "";
         String checkOutTime = "";
-        String formattedCheckIn = checkInDate + " " + checkInTime + ":00";
-        String formattedCheckOut = checkOutDate + " " + checkOutTime + ":00";
         System.out.print("What date will you check in? (MM/dd/yyyy): ");
         checkInDate = kb.nextLine();
         System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
         checkInTime = kb.nextLine();
         System.out.print("What date will you check out? (MM/dd/yyyy): ");
         checkOutDate = kb.nextLine();
-        System.out.print("What time will you check in? (hh:mm): "); // will automatically add ss
+        System.out.print("What time will you check out? (hh:mm): "); // will automatically add ss
         checkOutTime = kb.nextLine();
+        String formattedCheckIn = checkInDate + " " + checkInTime;
+        String formattedCheckOut = checkOutDate + " " + checkOutTime;
         System.out.println("Rooms open during your times: ");
         facade.displayRooms(facade.dateAndTimeConverter(formattedCheckIn), facade.dateAndTimeConverter(formattedCheckOut));
         System.out.print("\nEnter the room number you wish to stay in: ");
         tempRoomNumber = checkValidInputInt();
         facade.chooseHotel(tempRoomNumber);
-
+        System.out.println(tempRoomNumber + " room booked from " + checkInDate + " through " + checkOutDate);
     }
 
     /**
@@ -349,27 +349,25 @@ public class UI {
      * @param guestAmount
      */
     public void chooseSeatPrompt(int guestAmount){
-        facade.displaySeats();
         String userSeat = "";
         String guestSeat = "";
-        System.out.print("Enter the seat code you wish to book: ");
         userSeat = kb.nextLine();
         facade.chooseSeat(userSeat);
         for(int i = 0; i < guestAmount; i++){
-            System.out.print("Enter the seat code for Guest #" + i+1 + ": ");
+            System.out.print("Enter the seat code for Guest " + facade.getGuests().get(i).getName() + ": ");
             guestSeat = kb.nextLine();
             facade.chooseSeatForGuest(guestSeat, facade.getGuests().get(i));
             // need to add passenger to seat
         }
-
+        System.out.println("Seats booked. Purchase complete.");
     }
 
     /**
      * Allows the user to sort the flights
      */
     public void sortFlightsPrompt(){
-        System.out.print("Enter the way you would like to sort: ");
-        System.out.println("1. Name\n2.Price");
+        System.out.println("Enter the way you would like to sort: ");
+        System.out.println("1. Name\n2. Price");
         sortFlightsDecider(checkValidInputInt());
     }
     
@@ -377,8 +375,8 @@ public class UI {
      * Allows the user to sort hotels
      */
     public void sortHotelsPrompt(){
-        System.out.print("Enter the way you would like to sort: ");
-        System.out.println("1. Name\n2.Price");
+        System.out.println("Enter the way you would like to sort: ");
+        System.out.println("1. Name\n2. Price");
         sortHotelsDecider(checkValidInputInt());
     }
 

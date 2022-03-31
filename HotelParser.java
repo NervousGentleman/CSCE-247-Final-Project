@@ -16,7 +16,7 @@ public class HotelParser implements Parser<Hotel> {
     /**
      * Constructor for the HotelParser
      */
-    public HotelParser() {
+    private HotelParser() {
         this.hotels = new ArrayList<Hotel>();
     } // ending bracket of constructor
 
@@ -34,7 +34,8 @@ public class HotelParser implements Parser<Hotel> {
     /**
      * Loads the ArrayList of Hotels
      */
-    public ArrayList<Hotel> load() {		
+    public ArrayList<Hotel> load() {
+        hotels = new ArrayList<Hotel>();		
 		try {
 			FileReader reader = new FileReader(HotelJSONConstants.HOTEL_FILE_NAME.getName());
 			JSONArray hotelsJSON = (JSONArray)new JSONParser().parse(reader);

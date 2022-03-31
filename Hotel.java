@@ -138,7 +138,7 @@ public class Hotel {
      * Converts the hotel informtation to a String
      */
     public String toString(){
-        return "Hotel Name: " + this.getName() + " Location: " + this.getLocation() +" Rating: " + this.getRating() + " Pet Friendly: " + this.isPetFriendly() + " Breakfast: "
+        return "Hotel Name: " + name.getName() + " Location: " + this.getLocation() +" Rating: " + this.getRating() + " Pet Friendly: " + this.isPetFriendly() + " Breakfast: "
         + this.getHasBreakfast() + " Pool: " + this.getHasPool();
 
     }

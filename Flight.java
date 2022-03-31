@@ -176,7 +176,7 @@ public class Flight {
      * returns a string of the flight details
      */
     public String toString() {
-        String ret = "Flight " + airline.getName() + " departing from " + departureLocation + " at " + departureTime + " arriving at" 
+        String ret = "Flight " + airline.getName() + " departing from " + departureLocation + " at " + departureTime + " arriving at " 
         + destinationLocation + " at " + arrivalTime + ". Flight duration " + flightDuration + " hours.";
         return ret;
     }
