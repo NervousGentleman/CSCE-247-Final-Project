@@ -17,6 +17,9 @@ public class Facade {
     private FlightSort fs;
     private HotelSort hs;
     
+    /**
+     * Constructor for facade
+     */
     public Facade() {
         this.availableFlights = FlightParser.getInstance().load();
         this.availableHotels = HotelParser.getInstance().load();
@@ -29,6 +32,15 @@ public class Facade {
         this.userAccount = new Account();
     }
 
+    /**
+     * Creates the account for user
+     * @param email
+     * @param password
+     * @param name
+     * @param dateOfBirth
+     * @param passportNumber
+     * @return
+     */
     public boolean createAccount(String email, String password, String name, Date dateOfBirth, int passportNumber){
         if (findAccount(email) == null) {
             userAccount = new Account();
@@ -43,6 +55,12 @@ public class Facade {
         return false;
     } 
 
+    /**
+     * Validates the user login
+     * @param email
+     * @param password
+     * @return
+     */
     public boolean loginValidation(String email, String password){
         Account a = findAccount(email);
         if (a == null) {
@@ -54,6 +72,11 @@ public class Facade {
         return true;
     }
     
+    /**
+     * Finds the account of the user
+     * @param email
+     * @return
+     */
     private Account findAccount(String email){
         for (Account a : loadedAccounts) {
             if(a.getEmail().equals(email)) {
@@ -65,6 +88,11 @@ public class Facade {
         // set "userAccount" to that account object, and change rv to true.
     }
 
+    /**
+     * Allows the user to choose a flight
+     * @param flightChoice
+     * @return
+     */
     public boolean chooseFlight(int flightChoice){ 
         boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
@@ -76,6 +104,11 @@ public class Facade {
         return rv;
     } // ending bracket of method chooseFlight
 
+    /**
+     * Allows the user to choose a hotel
+     * @param hotelChoice
+     * @return
+     */
     public boolean chooseHotel(int hotelChoice){
         boolean rv = false;
         int hotelIndex = hotelChoice - 1;
@@ -86,12 +119,20 @@ public class Facade {
         return rv;
     }
 
+    /**
+     * Displayss the list of flights to the user
+     * @param flightList
+     */
     public void displayFlights(ArrayList<Flight> flightList){
         for(int i = 0; i < flightList.size(); i++) {
             System.out.println(flightList.get(i).toString());
         }
     }
     
+    /**
+     * Displays the list of hotels to the user
+     * @param hotelList
+     */
     public void displayHotels(ArrayList<Hotel> hotelList){
         for(int i = 0; i < hotelList.size(); i++) {
             System.out.println(hotelList.get(i).toString());
@@ -100,48 +141,79 @@ public class Facade {
         // print i+1 + ". " before hotel info
     }
 
+    /**
+     * Displays the seats available to the flight
+     * @param flight
+     */
     public void displaySeats(Flight flight){
         // loop through each seat in chosenFlight and print seat code to console if seatTaken == false
         
     }
 
+    /**
+     * Displays the flights the user booked
+     */
     public void displayBookedFlights(){
         displayFlights(this.userAccount.getBookedFlights());
     } // ending bracket of method display booked flights
 
+    /**
+     * Displays the flight history of the user
+     */
     public void displayFlightHistory(){
         displayFlights(this.userAccount.getFlightHistory());
     }
 
+    /**
+     * Displays the booked hotels that the user choose
+     */
     public void displayBookedHotels(){
         displayHotels(this.userAccount.getBookedHotels());
     }
 
+    /**
+     * Displays the hotel history for the user
+     */
     public void displayHotelHistory(){
         displayHotels(this.userAccount.getHotelHistory());
     }
 
+    /**
+     * Displays the flights the user searched for
+     */
     public void displaySearchedFlights(){
         displayFlights(this.preferenceFlights);
     }
 
+    /**
+     * Displays the hotels the user searched for
+     */
     public void displaySearchedHotels(){
         displayHotels(this.preferenceHotels);
     }
 
-
+    /**
+     * Allows the user to choose seat for guests
+     * @param seatCodes
+     * @param guests
+     */
     public void chooseSeatForGuest(ArrayList<String> seatCodes, ArrayList<Passenger> guests){
         for(int i = 0; i < guests.size(); i++){
             
         }
     }
 
-
+    /**
+     * Allows the user to choose a room
+     */
     public void chooseRoom(){
 
 
     }
 
+    /**
+     * Displays the seats available on a flight
+     */
     public void displaySeats(){
         ArrayList<ArrayList<Seat>> seats = chosenFlight.getSeats();
         ArrayList<ArrayList<Seat>> freeSeats = new ArrayList<ArrayList<Seat>>();
@@ -156,6 +228,11 @@ public class Facade {
 
     }
 
+    /**
+     * Displays the room available at a certain hotel
+     * @param start
+     * @param end
+     */
     public void displayRooms(Date start, Date end){
         ArrayList<ArrayList<Room>> rooms = chosenHotel.getRooms();
         for(ArrayList<Room> a : rooms ){
@@ -179,6 +256,11 @@ public class Facade {
         return rv;
     }
 
+    /**
+     * Search the flights
+     * @param startingCode
+     * @param endingCode
+     */
     public void searchFlights(String startingCode, String endingCode){
         for (int i = 0; i < availableFlights.size(); i++) {
             if (preferenceFlights.contains(availableFlights.get(i))) {
@@ -203,6 +285,10 @@ public class Facade {
         }
     }
 
+    /**
+     * Searchs the hotel in a certain city
+     * @param location
+     */
     public void searchHotels(String location) {
         for(Hotel tempHotel : this.availableHotels){
             if(location.equalsIgnoreCase(tempHotel.getLocation())){
@@ -211,6 +297,11 @@ public class Facade {
         }
     }
 
+    /**
+     * Deletes the flight that the user previously selected
+     * @param hotelChoice
+     * @return
+     */
     public boolean deleteUserFlight(int flightChoice){
         boolean rv = false;
         int flightIndex = flightChoice - 1;  // we subtract 1 because list will start at 0, but options will start at 1
@@ -222,6 +313,11 @@ public class Facade {
         return rv;
     }
     
+    /**
+     * Deletes the hotel that the user previously selected
+     * @param hotelChoice
+     * @return
+     */
     public boolean deleteUserHotel(int hotelChoice){
         boolean rv = false;
         int hotelIndex = hotelChoice - 1;  
@@ -232,6 +328,11 @@ public class Facade {
         return rv;
     }
 
+    /**
+     * Converts the data
+     * @param date
+     * @return
+     */
     public Date dateConverter(String date){
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Date tempBirthDate = new Date();
@@ -244,6 +345,11 @@ public class Facade {
         return tempBirthDate;
     }
     
+    /**
+     * Converts the time to SimpleDateFormat
+     * @param date
+     * @return
+     */
     public Date dateAndTimeConverter(String date){
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
         Date tempDate = new Date();
@@ -256,16 +362,30 @@ public class Facade {
         return tempDate;
     }
 
+    /**
+     * Allows the user to add a guest
+     * @param name
+     * @param dateOfBirth
+     * @param passportNumber
+     */
     public void addGuest(String name, Date dateOfBirth, int passportNumber){
         Passenger tempPassenger = new Passenger(name, dateOfBirth, passportNumber);
         this.guests.add(tempPassenger);
     }
 
+    /**
+     * Prints the itinerary for the flight
+     */
     public void printItinerary(){
         this.itinerary = new Itinerary(this.userAccount);
         this.itinerary.print();
     }
     
+    /**
+     * Allows the user to choose a seat
+     * @param seatCode
+     * @return
+     */
     public boolean chooseSeat(String seatCode) {
         ArrayList<ArrayList<Seat>> seats = this.chosenFlight.getSeats();
 
@@ -282,6 +402,12 @@ public class Facade {
         return false;
     }
 
+    /**
+     * Allows the user to choose a seat for the guest
+     * @param seatCode
+     * @param guest
+     * @return
+     */
     public boolean chooseSeatForGuest(String seatCode, Passenger guest) {
         ArrayList<ArrayList<Seat>> seats = this.chosenFlight.getSeats();
         
@@ -300,6 +426,10 @@ public class Facade {
         return false;
     }
 
+    /**
+     * Sorts the flights by price
+     * @return
+     */
     public ArrayList<Flight> sortFlightByPrice(){
         this.fs = new FlightSort(this.preferenceFlights);
         this.preferenceFlights = fs.sortPrices();

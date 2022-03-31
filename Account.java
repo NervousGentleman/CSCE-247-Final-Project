@@ -55,6 +55,10 @@ public class Account {
                         this.passengerSelf = passengerSelf;
     }
 
+    /**
+     * Getters and Setters
+     * @return
+     */
     public UUID getUUID() {
         return uuid;
     }

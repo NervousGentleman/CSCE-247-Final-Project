@@ -17,6 +17,22 @@ public class Flight {
     private int numSeatsPerRow;
     private ArrayList<ArrayList<Seat>> seats;
 
+    /**
+     * Constructor for flights
+     * @param flightID
+     * @param airline
+     * @param departureLocation
+     * @param destinationLocation
+     * @param isConnecting
+     * @param previousFlight
+     * @param nextFlight
+     * @param departureTime
+     * @param arrivalTime
+     * @param flightDuration
+     * @param numRows
+     * @param numSeatsPerRow
+     * @param seats
+     */
     public Flight(UUID flightID, Airline airline, String departureLocation, String destinationLocation,
                     boolean isConnecting, Flight previousFlight, Flight nextFlight, Date departureTime,
                     Date arrivalTime, double flightDuration, int numRows, int numSeatsPerRow, ArrayList<ArrayList<Seat>> seats) {
@@ -35,6 +51,10 @@ public class Flight {
                         this.seats = seats;
                     }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public UUID getFlightID()
     {
         return flightID;
@@ -152,6 +172,9 @@ public class Flight {
         this.seats = seats;
     }
 
+    /**
+     * returns a string of the flight details
+     */
     public String toString() {
         String ret = "Flight " + airline.getName() + " departing from " + departureLocation + " at " + departureTime + " arriving at" 
         + destinationLocation + " at " + arrivalTime + ". Flight duration " + flightDuration + " hours.";

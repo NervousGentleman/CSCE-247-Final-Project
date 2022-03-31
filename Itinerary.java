@@ -13,6 +13,9 @@ public class Itinerary {
         Itinerary.plannedHotels = user.getBookedHotels();
     }
 
+    /**
+     * Prints out the itinerary to a text file
+     */
     public static void print() {
         try {
             File itinerary = new File("itinerary.txt");

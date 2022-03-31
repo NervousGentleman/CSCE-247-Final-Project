@@ -8,6 +8,15 @@ public class Seat {
     private boolean seatTaken;
     private String seatCode;
 
+    /**
+     * Constructor for Seat
+     * @param passenger
+     * @param cost
+     * @param seatClass
+     * @param seatRow
+     * @param seatLettrer
+     * @param seatTaken
+     */
     public Seat(Passenger passenger, double cost, SeatClass seatClass, int seatRow, String seatLettrer,
                 boolean seatTaken) {
                     this.passenger = passenger;
@@ -19,6 +28,10 @@ public class Seat {
                     seatCode = seatRow + seatLetter;
                 }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public Passenger getPassenger()
     {
         return passenger;
@@ -81,6 +94,9 @@ public class Seat {
         return seatCode;
     }
 
+    /**
+     * Converts the seat information to a String
+     */
     public String toString() {
         String ret = seatClass.getName() + " seat " + seatCode + " costing $" + cost;
         if (isSeatTaken()) {

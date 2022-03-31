@@ -9,10 +9,18 @@ public enum HotelName {
 
     private final String name;
 
+    /**
+     * Name for the hotel
+     * @param name
+     */
     private HotelName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the hotel
+     * @return
+     */
     public String getName() {
         return name;
     }

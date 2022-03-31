@@ -16,6 +16,10 @@ public class FlightParser implements Parser<Flight> {
 
     }
 
+    /**
+     * Gets an instant of flight parser
+     * @return
+     */
     public static FlightParser getInstance() {
         if (flightParser == null) {
             flightParser = new FlightParser();
@@ -23,6 +27,9 @@ public class FlightParser implements Parser<Flight> {
         return flightParser;
     }
 
+    /**
+     * Loads the flights from the JSON file
+     */
     public ArrayList<Flight> load() {
         flights = new ArrayList<Flight>();
 
@@ -135,6 +142,9 @@ public class FlightParser implements Parser<Flight> {
         return flights;
     }
 
+    /**
+     * Saves new flights to the JSON file
+     */
     public void save() {
         JSONArray flightArray = new JSONArray();
         for (int i = 0; i < flights.size(); i++) {
@@ -199,14 +209,24 @@ public class FlightParser implements Parser<Flight> {
         }
     }
 
+    /**
+     * Adds a flight to the JSON file
+     */
     public void add(Flight flight) {
         flights.add(flight);
     }
 
+    /**
+     * Deletes a flight from the JSON file
+     */
     public void delete(Flight flight) {
         flights.remove(flight);
     }
 
+    /**
+     * Gets the list of flights
+     * @return
+     */
     public ArrayList<Flight> getList() {
         return flights;
     }
