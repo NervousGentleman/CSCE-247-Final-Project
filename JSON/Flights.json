@@ -1,17 +1,17 @@
 [
     {
-        "departureTime": -452170,
+        "departureTime": 1648815271,
         "departureLocation": "CAE",
         "numRows": 5,
         "nextFlight": null,
-        "flightID": "5214d014-b3c6-4852-a6e7-fd53c9990fae",
+        "flightID": "f65c02df-22a1-4eb3-b5f6-a712aa82cc17",
         "destinationLocation": "SEA",
         "isConnecting": false,
         "seats": [
             [
                 {
                     "seatTaken": false,
-                    "cost": 65.15,
+                    "cost": 62.4,
                     "seatLetter": "A",
                     "passenger": {
                         "passportNumber": -1,
@@ -23,7 +23,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 7.99,
+                    "cost": 66.83,
                     "seatLetter": "B",
                     "passenger": {
                         "passportNumber": -1,
@@ -35,7 +35,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 99.15,
+                    "cost": 69.69,
                     "seatLetter": "C",
                     "passenger": {
                         "passportNumber": -1,
@@ -49,7 +49,7 @@
             [
                 {
                     "seatTaken": false,
-                    "cost": 68.33,
+                    "cost": 56.02,
                     "seatLetter": "A",
                     "passenger": {
                         "passportNumber": -1,
@@ -61,7 +61,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 35.45,
+                    "cost": 17.79,
                     "seatLetter": "B",
                     "passenger": {
                         "passportNumber": -1,
@@ -73,7 +73,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 8.22,
+                    "cost": 18.87,
                     "seatLetter": "C",
                     "passenger": {
                         "passportNumber": -1,
@@ -87,7 +87,7 @@
             [
                 {
                     "seatTaken": false,
-                    "cost": 69.84,
+                    "cost": 2.21,
                     "seatLetter": "A",
                     "passenger": {
                         "passportNumber": -1,
@@ -99,7 +99,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 68.36,
+                    "cost": 23.36,
                     "seatLetter": "B",
                     "passenger": {
                         "passportNumber": -1,
@@ -111,7 +111,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 26.82,
+                    "cost": 79.21,
                     "seatLetter": "C",
                     "passenger": {
                         "passportNumber": -1,
@@ -125,7 +125,7 @@
             [
                 {
                     "seatTaken": false,
-                    "cost": 84.21,
+                    "cost": 29.63,
                     "seatLetter": "A",
                     "passenger": {
                         "passportNumber": -1,
@@ -137,7 +137,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 7.43,
+                    "cost": 92.14,
                     "seatLetter": "B",
                     "passenger": {
                         "passportNumber": -1,
@@ -149,7 +149,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 12.46,
+                    "cost": 78.68,
                     "seatLetter": "C",
                     "passenger": {
                         "passportNumber": -1,
@@ -163,7 +163,7 @@
             [
                 {
                     "seatTaken": false,
-                    "cost": 42.36,
+                    "cost": 17.71,
                     "seatLetter": "A",
                     "passenger": {
                         "passportNumber": -1,
@@ -175,7 +175,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 49.48,
+                    "cost": 30.98,
                     "seatLetter": "B",
                     "passenger": {
                         "passportNumber": -1,
@@ -187,7 +187,7 @@
                 },
                 {
                     "seatTaken": false,
-                    "cost": 39.86,
+                    "cost": 87.09,
                     "seatLetter": "C",
                     "passenger": {
                         "passportNumber": -1,
@@ -199,10 +199,1114 @@
                 }
             ]
         ],
-        "arrivalTime": -437770,
+        "arrivalTime": 1648829671,
         "flightDuration": 4.0,
         "numSeatsPerRow": 3,
         "airline": "Amtrack",
         "previousFlight": null
+    },
+    {
+        "departureTime": 1648834231,
+        "departureLocation": "CAE",
+        "numRows": 10,
+        "nextFlight": "de431e2a-a477-426b-9f1d-a9463ac6a312",
+        "flightID": "75a84421-2ea1-4e6b-b129-8fcac16a608b",
+        "destinationLocation": "ATL",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 54.15,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 12.22,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 56.08,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 28.05,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 7.16,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 13.19,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 56.62,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 8.08,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 16.52,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 0.95,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 8.19,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 81.0,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 61.87,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 19.56,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 84.81,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 71.73,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 38.51,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 17.93,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 70.68,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 13.14,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 95.84,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 69.22,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 8,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 75.27,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 8,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 12.72,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 8,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 5.68,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 9,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 76.98,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 9,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 29.39,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 9,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 57.73,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 10,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 47.8,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 10,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 78.07,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 10,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648836871,
+        "flightDuration": 6.0,
+        "numSeatsPerRow": 3,
+        "airline": "DisUnited Airlines",
+        "previousFlight": null
+    },
+    {
+        "departureTime": 1648815271,
+        "departureLocation": "ATL",
+        "numRows": 7,
+        "nextFlight": null,
+        "flightID": "de431e2a-a477-426b-9f1d-a9463ac6a312",
+        "destinationLocation": "SEA",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 89.74,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 46.35,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 45.93,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 32.12,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 45.88,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 94.22,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 61.72,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 65.23,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 85.69,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 38.41,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 6.56,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 29.1,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 4,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 95.61,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 27.43,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 12.8,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 5,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 68.82,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 61.59,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 50.35,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 6,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 88.23,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 88.57,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 3.7,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 7,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648844071,
+        "flightDuration": 32.0,
+        "numSeatsPerRow": 3,
+        "airline": "DisUnited Airlines",
+        "previousFlight": "75a84421-2ea1-4e6b-b129-8fcac16a608b"
+    },
+    {
+        "departureTime": 1648819831,
+        "departureLocation": "CAE",
+        "numRows": 2,
+        "nextFlight": "d1ca8e66-936a-4823-92d0-0f26e374b993",
+        "flightID": "e2192b0a-35ce-4a0f-8bc7-ad6265161ec6",
+        "destinationLocation": "CLT",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 26.74,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 11.05,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 22.56,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 69.5,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 82.43,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 59.98,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648827031,
+        "flightDuration": 2.0,
+        "numSeatsPerRow": 3,
+        "airline": "NorthEast",
+        "previousFlight": null
+    },
+    {
+        "departureTime": 1648828831,
+        "departureLocation": "CLT",
+        "numRows": 3,
+        "nextFlight": null,
+        "flightID": "d1ca8e66-936a-4823-92d0-0f26e374b993",
+        "destinationLocation": "SEA",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 44.47,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 41.16,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 85.41,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 39.74,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 7.07,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 82.88,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 81.08,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 27.46,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 90.36,
+                    "seatLetter": "C",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 3,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648843231,
+        "flightDuration": 12.0,
+        "numSeatsPerRow": 3,
+        "airline": "NorthEast",
+        "previousFlight": "e2192b0a-35ce-4a0f-8bc7-ad6265161ec6"
+    },
+    {
+        "departureTime": 1648810831,
+        "departureLocation": "CAE",
+        "numRows": 2,
+        "nextFlight": "99877ecf-3119-43d7-b018-567d3c4b38f4",
+        "flightID": "d097c5ac-8458-41a6-b93b-f0cfd8fdabb8",
+        "destinationLocation": "CLT",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 90.64,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 99.49,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 7.99,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 75.18,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648816231,
+        "flightDuration": 1.5,
+        "numSeatsPerRow": 2,
+        "airline": "Unamerican Airlines",
+        "previousFlight": null
+    },
+    {
+        "departureTime": 1648818031,
+        "departureLocation": "CLT",
+        "numRows": 2,
+        "nextFlight": "3c04411f-359e-4a2f-9544-845bf73d643b",
+        "flightID": "99877ecf-3119-43d7-b018-567d3c4b38f4",
+        "destinationLocation": "JFK",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 85.79,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 26.03,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 95.56,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 16.83,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648832431,
+        "flightDuration": 4.0,
+        "numSeatsPerRow": 2,
+        "airline": "Unamerican Airlines",
+        "previousFlight": "d097c5ac-8458-41a6-b93b-f0cfd8fdabb8"
+    },
+    {
+        "departureTime": 1648834231,
+        "departureLocation": "JFK",
+        "numRows": 2,
+        "nextFlight": null,
+        "flightID": "3c04411f-359e-4a2f-9544-845bf73d643b",
+        "destinationLocation": "SEA",
+        "isConnecting": true,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 81.03,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 32.13,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 44.74,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 45.12,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": 1648848631,
+        "flightDuration": 4.0,
+        "numSeatsPerRow": 2,
+        "airline": "Unamerican Airlines",
+        "previousFlight": "99877ecf-3119-43d7-b018-567d3c4b38f4"
     }
 ]
