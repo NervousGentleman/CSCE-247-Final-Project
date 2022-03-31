@@ -5,16 +5,14 @@ import java.util.Comparator;
 
 public class HotelSort {
     private ArrayList<Hotel> hotels;
-    private ArrayList<Room> rooms;
 
     /**
      * Initializes HotelSort
      * @param hotels
      * @param rooms
      */
-    public HotelSort(ArrayList<Hotel> hotels, ArrayList<Room> rooms) {
+    public HotelSort(ArrayList<Hotel> hotels) {
         this.hotels = hotels;
-        this.rooms = rooms;
     }
 
     /**
@@ -33,11 +31,30 @@ public class HotelSort {
      * helper method for sorting the price of the rooms
      * https://www.geeksforgeeks.org/java-program-to-sort-an-arraylist/
      */
-    public Comparator<Room> sortPrice = new Comparator<Room>() {
-        public int compare(Room s1, Room s2){
-            int room1 = (int)s1.getPrice();
-            int room2 = (int)s2.getPrice();
-            return room1 - room2;
+    public Comparator<Hotel> sortPrice = new Comparator<Hotel>() {
+        public int compare(Hotel h1, Hotel h2) {
+        double minPriceF1 = Double.MAX_VALUE;
+        double minPriceF2 = Double.MAX_VALUE;
+            for (ArrayList<Room> a : h1.getRooms()) {
+                for (Room s : a) {
+                    if (s.getPrice() < minPriceF1) {
+                        minPriceF1 = s.getPrice();
+                    }
+                }
+            }
+            for (ArrayList<Room> a : h2.getRooms()) {
+                for (Room s : a) {
+                    if (s.getPrice() < minPriceF2) {
+                        minPriceF2 = s.getPrice();
+                    }
+                }
+            }
+            if (minPriceF1 < minPriceF2) {
+                return -1;
+            } else if (minPriceF1 > minPriceF2) {
+                return 1;
+            }
+            return 0;
         }
     };
 
@@ -54,8 +71,8 @@ public class HotelSort {
      * Sorts the rooms by price
      * @return
      */
-    public ArrayList<Room> sortPrices(){
-        Collections.sort(rooms, sortPrice);
-        return rooms;
+    public ArrayList<Hotel> sortPrices(){
+        Collections.sort(hotels, sortPrice);
+        return hotels;
     }
 }

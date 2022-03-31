@@ -1,11 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.MissingResourceException;
-
 public class FlightSort {
     private ArrayList<Flight> flights;
-    private ArrayList<Seat> seats;
 
     /**
      * Initializes FlightSort
@@ -71,8 +68,8 @@ public class FlightSort {
      * Sorts the flights by the seat price
      * @return ArrayList
      */
-    public ArrayList<Seat> sortPrices(){
+    public ArrayList<Flight> sortPrices(){
         Collections.sort(flights, sortPrice);
-        return seats;
+        return flights;
     }
 }
