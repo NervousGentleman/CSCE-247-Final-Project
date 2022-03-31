@@ -45,6 +45,7 @@ public class UI {
         if(tempUserInput.equalsIgnoreCase("y")){
             System.out.print("Please enter your email: ");
             tempEmail = kb.nextLine();
+            System.out.print("Please enter your password: ");
             tempPassword = kb.nextLine();
             loginSuccessful = facade.loginValidation(tempEmail, tempPassword); 
             // if account user is found, prompt for password and check against the stored password.
@@ -64,13 +65,8 @@ public class UI {
     }
 
     public int checkValidInputInt() {
-
-        while(!kb.hasNextInt()) {
-            System.out.println("Invalid Option! Please enter an integer!");
-            kb.next();
-        } // ending bracket of while loop checking if valid input
-       
         int rv = kb.nextInt();
+        kb.nextLine();
         return rv;
     } // ending bracket of method checkValidInputInt
 
@@ -185,9 +181,9 @@ public class UI {
         int guestAmount = 0;
         boolean validFlight = false;
         System.out.println("******************* Find Flight *******************");
-        System.out.print("Enter the Airport Code of your starting airport: ");
+        System.out.print("Enter the Airport Code of your starting airport:");
         startingCode = kb.nextLine();
-        System.out.print("Enter the Airport Code of your destination: ");
+        System.out.print("Enter the Airport Code of your destination:");
         destinationCode = kb.nextLine();
         if(guestPrompt()){
             System.out.print("Enter the amount of guests: ");

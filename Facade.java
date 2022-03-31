@@ -180,10 +180,25 @@ public class Facade {
     }
 
     public void searchFlights(String startingCode, String endingCode){
-        for(Flight tempFlight : this.availableFlights){
-
-            if(startingCode.equalsIgnoreCase(tempFlight.getDepartureLocation()) && endingCode.equalsIgnoreCase(tempFlight.getDestinationLocation())){
-                preferenceFlights.add(tempFlight);
+        for (int i = 0; i < availableFlights.size(); i++) {
+            if (preferenceFlights.contains(availableFlights.get(i))) {
+                continue;
+            }
+            Flight f = availableFlights.get(i);
+            if (f.getDepartureLocation().equals(startingCode)) {
+                if (!f.getIsConnecting() && f.getDestinationLocation().equals(endingCode)) {
+                    preferenceFlights.add(f);
+                }
+            } else if (f.getIsConnecting()) {
+                Flight temp = f.getNextFlight();
+                while (temp != null) {
+                    if (temp.getDestinationLocation().equals(endingCode)) {
+                        preferenceFlights.add(f);
+                        preferenceFlights.add(temp);
+                        break;
+                    }
+                    temp = temp.getNextFlight();
+                }
             }
         }
     }
