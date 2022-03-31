@@ -205,7 +205,7 @@ public class UI {
         } // ending bracket of while loop
         System.out.print("Enter the seat code you wish to book: ");
         seatCode = kb.nextLine();
-
+        facade.chooseSeat(seatCode);
         // display seats and choose for self and guests
     }
 
@@ -245,7 +245,7 @@ public class UI {
         facade.displayRooms(facade.dateAndTimeConverter(formattedCheckIn), facade.dateAndTimeConverter(formattedCheckOut));
         System.out.print("\nEnter the room number you wish to stay in: ");
         tempRoomNumber = checkValidInputInt();
-
+        facade.chooseHotel(tempRoomNumber);
 
     }
 
@@ -305,9 +305,11 @@ public class UI {
         String guestSeat = "";
         System.out.print("Enter the seat code you wish to book: ");
         userSeat = kb.nextLine();
+        facade.chooseSeat(userSeat);
         for(int i = 0; i < guestAmount; i++){
             System.out.print("Enter the seat code for Guest #" + i+1 + ": ");
             guestSeat = kb.nextLine();
+            facade.chooseSeatForGuest(guestSeat, facade.getGuests().get(i));
             // need to add passenger to seat
         }
 

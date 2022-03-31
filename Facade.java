@@ -308,4 +308,8 @@ public class Facade {
         this.preferenceHotels = hs.sortNames();
         return hs.sortNames();
     }
+
+    public ArrayList<Passenger> getGuests(){
+        return this.guests;
+    }
 }
