@@ -13,6 +13,19 @@ public class Hotel {
     private int numRoomsPerFloor;
     private ArrayList<ArrayList<Room>> rooms;
 
+    public Hotel(){
+        this.uuid = UUID.randomUUID();
+        this.setName(HotelName.DEFAULT_NAME);
+        this.setRating(0);
+        this.setPetFriendly(false);
+        this.setHasBreakfast(false);
+        this.setHasPool(false);
+        this.setLocation("");
+        this.setNumFloors(0);
+        this.setNumRoomsPerFloor(0);
+        this.setRooms(new ArrayList<ArrayList<Room>>());
+    } // ending bracket of default constructor for Hotel
+
     public Hotel(UUID uuid, HotelName name, int rating, boolean petFriendly, boolean hasBreakfast, boolean hasPool,
                 String location, int numFloors, int numRoomsPerFloor, ArrayList<ArrayList<Room>> rooms) {
                     this.uuid = uuid;
@@ -115,5 +128,11 @@ public class Hotel {
 
     public void setRooms(ArrayList<ArrayList<Room>> rooms) {
         this.rooms = rooms;
+    }
+
+    public String toString(){
+        return "Hotel Name: " + this.getName() + " Location: " + this.getLocation() +" Rating: " + this.getRating() + " Pet Friendly: " + this.isPetFriendly() + " Breakfast: "
+        + this.getHasBreakfast() + " Pool: " + this.getHasPool();
+
     }
 }
