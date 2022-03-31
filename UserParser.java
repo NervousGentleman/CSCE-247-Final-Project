@@ -17,6 +17,10 @@ public class UserParser implements Parser<Account> {
         // users = load();
     }
 
+    /**
+     * Creates an instance of the user json
+     * @return
+     */
     public static UserParser getInstance() {
         if (userParser == null) {
             userParser = new UserParser();
@@ -24,6 +28,9 @@ public class UserParser implements Parser<Account> {
         return userParser;
     }
 
+    /**
+     * Loads the Json file
+     */
     public ArrayList<Account> load() {
         users = new ArrayList<Account>();
         ArrayList<Flight> flights = FlightParser.getInstance().load();
@@ -133,6 +140,9 @@ public class UserParser implements Parser<Account> {
         return users;
     }
 
+    /**
+     * Saves the Json file that input into it
+     */
     public void save() {
         JSONArray usersArray = new JSONArray();
         for (int i = 0; i < users.size(); i++) {
@@ -200,14 +210,24 @@ public class UserParser implements Parser<Account> {
         }
     }
 
+    /**
+     * Adds a account to Json files
+     */
     public void add(Account user) {
         users.add(user);
     }
 
+    /**
+     * Deletes the account fro the JSON files
+     */
     public void delete(Account user) {
         users.remove(user);
     }
 
+    /**
+     * Gets the list
+     * @return
+     */
     public ArrayList<Account> getList() {
         return users;
     }
