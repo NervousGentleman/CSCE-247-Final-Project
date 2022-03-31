@@ -7,11 +7,20 @@ public class HotelSort {
     private ArrayList<Hotel> hotels;
     private ArrayList<Room> rooms;
 
+    /**
+     * Initializes HotelSort
+     * @param hotels
+     * @param rooms
+     */
     public HotelSort(ArrayList<Hotel> hotels, ArrayList<Room> rooms) {
         this.hotels = hotels;
         this.rooms = rooms;
     }
 
+    /**
+     * helper method for sorting the names of the hotels
+     * https://www.geeksforgeeks.org/java-program-to-sort-an-arraylist/
+     */
     public Comparator<Hotel> sortName = new Comparator<Hotel>() {
         public int compare(Hotel h1, Hotel h2){
             String hotel1 = h1.getName().toString().toUpperCase();
@@ -20,6 +29,10 @@ public class HotelSort {
         }
     }; 
 
+    /**
+     * helper method for sorting the price of the rooms
+     * https://www.geeksforgeeks.org/java-program-to-sort-an-arraylist/
+     */
     public Comparator<Room> sortPrice = new Comparator<Room>() {
         public int compare(Room s1, Room s2){
             int room1 = (int)s1.getPrice();
@@ -28,11 +41,19 @@ public class HotelSort {
         }
     };
 
+    /**
+     * Sorts the hotels by name
+     * @return ArrayList
+     */
     public ArrayList<Hotel> sortNames(){
         Collections.sort(hotels, sortName);
         return hotels;
     }
 
+    /**
+     * Sorts the rooms by price
+     * @return
+     */
     public ArrayList<Room> sortPrices(){
         Collections.sort(rooms, sortPrice);
         return rooms;
