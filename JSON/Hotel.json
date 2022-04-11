@@ -434,5 +434,18 @@
         "numFloors": 3,
         "uuid": "4e4f9e00-ae03-4220-998e-a92fe0c2a740",
         "hasPool": false
-    }
+    },
+    {
+        "rooms": null,
+        "name": null,
+        "rating": null,
+        "petFriendly": null,
+        "numRoomsPerFloor": null,
+        "location": null,
+        "hasBreakfast": null,
+        "numFloors": null,
+        "uuid": null,
+        "hasPool": null
+    },
+    {}
 ]

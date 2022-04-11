@@ -1308,5 +1308,74 @@
         "numSeatsPerRow": 2,
         "airline": "Unamerican Airlines",
         "previousFlight": "99877ecf-3119-43d7-b018-567d3c4b38f4"
-    }
+    },
+    {
+        "departureTime": null,
+        "departureLocation": null,
+        "numRows": null,
+        "nextFlight": null,
+        "flightID": null,
+        "destinationLocation": null,
+        "isConnecting": null,
+        "seats": [
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 81.03,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 32.13,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 1,
+                    "class": "Economy"
+                }
+            ],
+            [
+                {
+                    "seatTaken": false,
+                    "cost": 44.74,
+                    "seatLetter": "A",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                },
+                {
+                    "seatTaken": false,
+                    "cost": 45.12,
+                    "seatLetter": "B",
+                    "passenger": {
+                        "passportNumber": -1,
+                        "name": "null",
+                        "dateOfBirth": 0
+                    },
+                    "seatRow": 2,
+                    "class": "Economy"
+                }
+            ]
+        ],
+        "arrivalTime": null,
+        "flightDuration": null,
+        "numSeatsPerRow": null,
+        "airline": null,
+        "previousFlight": null
+    },
+    {}
 ]
