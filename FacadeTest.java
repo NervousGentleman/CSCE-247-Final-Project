@@ -89,5 +89,17 @@ class FacadeTest {
         assertEquals(false, testFacade.createAccount(email, password, name, dob, passportNumber));
     }
 
+    @Test
+
+    public void testRoomTakenDuringTime(){
+        long startLong = 1649721600 * 1000;
+        long endLong = 1649721900 * 1000;
+        Date start = new Date(startLong);
+        Date end = new Date(endLong);
+        Date[] dates = {new Date(1649721500 * 1000), new Date(1649722600 * 1000) };
+
+        assertEquals(true, testFacade.roomTakenDuringTime(start, end, dates));
+    }
+
 
 }
